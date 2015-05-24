@@ -28,20 +28,20 @@
 ?>
 		<div style="clear:both; height:1px;"><!-- empty --></div>
 		<div id="footer">
-<!--			<ul class="list-inline pull-right social">
+			<ul class="list-inline pull-right social">
 				<li><i class="fa fa-twitter"></i></li>
 				<li><i class="fa fa-facebook-square"></i></li>
 				<li><i class="fa fa-youtube-play"></i></li>
 			</ul>
--->			<div>
-				
+			<div>
+				Footer text here
 			</div>
 			<ul class="list-inline">
-				<li><a href="/gestion">Gestion</a></li>
-<!--				<li><a href="#">Link 2</a></li>
+				<li><a href="#">Link 1</a></li>
+				<li><a href="#">Link 2</a></li>
 				<li><a href="#">Link 3</a></li>
--->			</ul>
-			<div><small>motorisé par <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
+			</ul>
+			<div><small>powered by <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
 		</div><!-- end footer -->
 <?php
 	//

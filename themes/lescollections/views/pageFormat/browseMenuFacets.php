@@ -57,7 +57,7 @@
 <?php
 	} else {
 ?>
-		Aucune facette n'est disponible 
+		No facets available
 <?php
 	}
 ?>

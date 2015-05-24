@@ -33,7 +33,7 @@
 			case "list":
 				if(sizeof($va_browse_types) > 1){
 ?>
-				<li class="dropdown<?php print ($this->request->getController() == "Browse") ? ' active' : ''; ?>" style="position:relative;"><a href="#" class="dropdown-toggle mainhead top" data-toggle="dropdown"><?php print _t("Parcourir"); ?></a>
+				<li class="dropdown<?php print ($this->request->getController() == "Browse") ? ' active' : ''; ?>" style="position:relative;"><a href="#" class="dropdown-toggle mainhead top" data-toggle="dropdown"><?php print _t("Browse"); ?></a>
 					<ul class="dropdown-menu">
 <?php
 						foreach($va_browse_types as $vs_browse_name => $va_browse_type){
@@ -54,7 +54,7 @@
 				$vs_first_browse = null;
 ?>
 				 <li class="dropdown yamm-fw<?php print ($this->request->getController() == "Browse") ? ' active' : ''; ?>"> <!-- add class yamm-fw for full width-->
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php print _t("Parcourir"); ?></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">collections</a>
 					<ul class="dropdown-menu" id="browse-menu">
 						<li class="browseNavFacet">			
 							<div class="browseMenuContent container">

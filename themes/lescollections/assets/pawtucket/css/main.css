@@ -9,7 +9,7 @@
 div {border:1px solid red;}*/
 
 body {
-	font-family: arial;
+	font-family: Lato;
 	color:#454545;
 }
 a {
@@ -21,7 +21,7 @@ a, a:active, a:focus {
 }
 
 H1, h1, H2, h2, H3, h3, H4, h4, H5, h5, H6, h6{
-	font-family: DIN17SBOP-Regular;
+	font-family: Lato;
 	font-weight: normal;
 	font-style: normal;
 }
@@ -110,6 +110,11 @@ h1 i {
 	margin-right: -6px;
 	margin-left: -6px;
 }
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
 .smallpadding {
 	padding:6px;
 }
@@ -197,6 +202,7 @@ h1 i {
   background-color:#FFFFFF;
   border-top:0px;
   border:0px;
+  margin-bottom: 0;
   -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -224,7 +230,7 @@ h1 i {
     color: #555555;
 }
 .nav > li > a, .nav > li > a:hover, .nav > li > a:focus {
-	font-family: DIN17SBOP-Regular;
+	font-family: Aleo;
 	font-size:12px;
 	color:#000;
 }
@@ -234,7 +240,12 @@ h1 i {
 .navbar-nav > li > a {
     line-height: 27px;
 }   
-   
+.nav > li > a {
+	margin:0;
+	padding-right:0;
+	padding-left: 0;
+}
+
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-menu > .active > a,
@@ -245,7 +256,16 @@ h1 i {
   filter: none;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #000000;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 900;
+    font-size:14.5px !important;
+    text-transform: uppercase;
+    color: #774553;
+    margin-right: 1.75em;
+    font-size: .60em;
+    white-space: nowrap;
+    display: inline-block;
+    float: left;
 }
 .nav > li.dropdown > a.icon{
 	font-size:16px;
@@ -279,14 +299,15 @@ h1 i {
 	color:#cccccc;
 }
 .navbar-brand img {
-  	width:100%;
+  	/*width:100%;*/
+  	margin-bottom: -1em;
 }
 .navbar-brand {
-	width:200px;
-	padding:0;
+	/*width:200px;*/
 	padding-top:8px;
 	padding-bottom:8px;
 	padding-left:15px;
+	padding-right: 30px;
 }
 .navbar .form-control {
 	padding: 0px 7px;
@@ -2233,6 +2254,9 @@ a.readmore-js-toggle{
 	width: 100%; 
 	height: 100%;
 }
+#caMediaDisplayContentMedia {
+    padding: 10px;
+}
 
 #caMediaOverlayContent {
 	margin: 0px;
@@ -2522,7 +2546,7 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 	background-color: #000;
 	color: #fff;
 	height: 245px;
-	font-family: DIN17SBOP-Regular;
+	font-family: Aleo;
 	padding: 15px 10px 20px 15px;
 	font-size: 24px;
 	margin-right:15px;
@@ -2562,7 +2586,7 @@ div.advancedSearchField {
 	margin-top:20px;
 }
 .collHeader a{
-	font-family: DIN17SBOP-Regular;
+	font-family: Aleo;
 	color: #414151;
 	font-size: 16px;
 }
@@ -2606,4 +2630,9 @@ div.advancedSearchField {
   .nav, .navbar form {
   	display: none;
   }
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+	padding-left: 0;
+	padding-right: 0;
 }

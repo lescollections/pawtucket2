@@ -34,16 +34,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<H1>Louis Floutier</H1>
-<blockquote>
-			<p>Louis Benjamin Hughes Floutier, artiste peintre, est né le 31 mars 1882 à Toulouse où il suit une première formation artistique de cinq ans à l’école des Beaux Arts de Toulouse dans l’atelier de peinture de Monsieur Laborde. Il intègre l’Académie des beaux-arts de Paris dans l’atelier de Monsieur Cormon le 3 novembre 1903. Premier logiste au Grand prix de Rome.
-</p><p>
-Il participe à la première Guerre Mondiale, comme engagé volontaire au 13e Régiment d Artillerie et 1er Génie, comme camoufleur.
-</p><p>
-Il s'installe au Pays basque, et participe en 1919 à la fondation des Poteries de Ciboure avec Lukas et Villotte.
-</p><p>
-À partir de 1922 il se concentre sur les paysages basques. Il décède à Saint Jean de Luz le 26 octobre 1936.</p>
-</blockquote>
+			<H1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, orci quis vehicula eleifend, metus elit laoreet elit.</H1>
 		</div><!--end col-sm-8-->
 		<div class="col-sm-4">
 <?php

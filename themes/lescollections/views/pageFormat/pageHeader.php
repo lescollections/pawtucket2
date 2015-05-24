@@ -71,25 +71,6 @@
 		print $o_debugbar_renderer->renderHead();
 	}
 ?>
-<!-- favicon -->
-<link rel="apple-touch-icon" sizes="57x57" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-57x57.png'); ?>">
-<link rel="apple-touch-icon" sizes="60x60" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-60x60.png'); ?>">
-<link rel="apple-touch-icon" sizes="72x72" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-72x72.png'); ?>">
-<link rel="apple-touch-icon" sizes="76x76" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-76x76.png'); ?>">
-<link rel="apple-touch-icon" sizes="114x114" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-114x114.png'); ?>">
-<link rel="apple-touch-icon" sizes="120x120" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-120x120.png'); ?>">
-<link rel="apple-touch-icon" sizes="144x144" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-144x144.png'); ?>">
-<link rel="apple-touch-icon" sizes="152x152" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-152x152.png'); ?>">
-<link rel="apple-touch-icon" sizes="180x180" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/apple-icon-180x180.png'); ?>">
-<link rel="icon" type="image/png" sizes="192x192"  href="<?php print caGetThemeGraphicURL($this->request, 'favicon/android-icon-192x192.png'); ?>">
-<link rel="icon" type="image/png" sizes="32x32" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/favicon-32x32.png'); ?>">
-<link rel="icon" type="image/png" sizes="96x96" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/favicon-96x96.png'); ?>">
-<link rel="icon" type="image/png" sizes="16x16" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/favicon-16x16.png'); ?>">
-<link rel="manifest" href="<?php print caGetThemeGraphicURL($this->request, 'favicon/manifest.json'); ?>">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="<?php print caGetThemeGraphicURL($this->request, 'favicon/ms-icon-144x144.png'); ?>">
-<meta name="theme-color" content="#ffffff">
-<!-- .favicon -->
 </head>
 <body>
 	<nav class="navbar navbar-default yamm" role="navigation">
@@ -107,7 +88,7 @@
 					<span class="icon-bar"></span>
 				</button>
 <?php
-				print caNavLink($this->request, caGetThemeGraphic($this->request, 'ca_nav_logo300.png'), "navbar-brand", "", "","");
+				print caNavLink($this->request, caGetThemeGraphic($this->request, 'logo.png'), "navbar-brand", "", "","");
 ?>
 			</div>
 
@@ -131,23 +112,29 @@
 						</ul>
 					</li>
 				</ul>
-				<form class="navbar-form navbar-right" role="search" action="<?php print caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>">
-					<div class="formOutline">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search" name="search">
-						</div>
-						<button type="submit" class="btn-search"><span class="glyphicon glyphicon-search"></span></button>
-					</div>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li <?php print ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("A propos"), "", "", "About", "Index"); ?></li>
+				<ul class="nav navbar-nav">
+				<!--ACCUEIL<=>ABOUT  ACTUALITÉS=>AnchorCMS  PARCOURIR LES COLLECTIONS  EN SAVOIR PLUS POUR EN FAIRE DAVANTAGE  GALERIE  CONTACT-->
+
+                    <!--A MODIFIER, NON FONCTIONNEL -->
+                    <li <?php print ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("A propos"), "", "", "About", "Index"); ?></li>
+					<li><a href="/blog">Blog</a></li>
 <?php
 						print $this->render("pageFormat/browseMenu.php");
 ?>	
-					<li <?php print (($this->request->getController() == "Search") && ($this->request->getAction() == "advanced")) ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Recherche avancée"), "", "", "Search", "advanced/objects"); ?></li>
-					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Galerie"), "", "", "Gallery", "Index"); ?></li>
-					<li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
-				</ul>
+					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, "Galerie", "", "", "Gallery", "Index"); ?></li>
+
+                    <li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
+
+                </ul>
+				<div>
+				<form class="navbar-form" role="search" action="<?php print caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>">
+						<div class="form-group formOutline">
+							<input type="text" class="form-control" placeholder="Search" name="search">
+						</div>
+						<button type="submit" class="btn-search"><span class="glyphicon glyphicon-search"></span></button>
+				</form>
+				</div>
+
 			</div><!-- /.navbar-collapse -->
 		</div><!-- end container -->
 	</nav>

@@ -26,116 +26,54 @@
 			
 			<div class='col-sm-6 col-md-6 col-lg-5'>
 				<H4>{{{<unit relativeTo="ca_collections" delimiter="<br/>"><l>^ca_collections.preferred_labels.name</l></unit><ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
-				
-
-				<H6>{{{<unit>^ca_objects.type_id</unit>}}} /
-				{{{<ifdef code="ca_objects.dom_antiq">
-					^ca_objects.dom_antiq
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_archi">
-					^ca_objects.dom_archi
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_trib">
-					^ca_objects.dom_trib
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_sci">
-					^ca_objects.dom_sci
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_nat">
-					^ca_objects.dom_nat
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_mob">
-					^ca_objects.dom_mob
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_impr">
-					^ca_objects.dom_impr
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_art">
-					^ca_objects.dom_art
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_jo">
-					^ca_objects.dom_jo
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_img">
-					^ca_objects.dom_img
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.dom_col">
-					^ca_objects.dom_col
-				</ifdef>}}}
-				</H6>
+				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
 				<HR>
 				
 				{{{<ifdef code="ca_objects.measurementSet.measurements">^ca_objects.measurementSet.measurements (^ca_objects.measurementSet.measurementsType)</ifdef><ifdef code="ca_objects.measurementSet.measurements,ca_objects.measurementSet.measurements"> x </ifdef><ifdef code="ca_objects.measurementSet.measurements2">^ca_objects.measurementSet.measurements2 (^ca_objects.measurementSet.measurementsType2)</ifdef>}}}
 				
 				
-				{{{<ifdef code="ca_objects.idno"><H6>Identifiant</H6>^ca_objects.idno<br/></ifdef>}}}
-				{{{<ifdef code="ca_objects.refs">
-					<H6>Autres références</H6>
-					<span class="trimText">^ca_objects.refs.reference</span>
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.refs.typref">(^ca_objects.refs.typref)<br/></ifdef>}}} 
-				
-				{{{<ifdef code="ca_objects.containerID"><H6>Boite/serie</H6>^ca_objects.containerID<br/></ifdef>}}}				
-				<HR>
+				{{{<ifdef code="ca_objects.idno"><H6>Identifiant:</H6>^ca_objects.idno<br/></ifdef>}}}
+				{{{<ifdef code="ca_objects.containerID"><H6>Box/series:</H6>^ca_objects.containerID<br/></ifdef>}}}
+
+                {{{<ifdef code="ca_objects.work_dimensions"><H6>Dimensions:</H6>^ca_objects.work_dimensions.dimensions_width ^ca_objects.work_dimensions.dimensions_height ^ca_objects.work_dimensions.dimensions_depth ^ca_objects.work_dimensions.dimensions_type<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_art"><H6>Domaine:</H6>^ca_objects.dom_art<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_antiq"><H6>Domaine:</H6>^ca_objects.dom_antiq<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_archi"><H6>Domaine:</H6>^ca_objects.dom_archi<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_jo"><H6>Domaine:</H6>^ca_objects.dom_jo<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_mob"><H6>Domaine:</H6>^ca_objects.dom_mob<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_scitech"><H6>Domaine:</H6>^ca_objects.dom_scitech<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_manuimpri"><H6>Domaine:</H6>^ca_objects.dom_manuimpri<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_imgson"><H6>Domaine:</H6>^ca_objects.dom_imgson<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_col"><H6>Domaine:</H6>^ca_objects.dom_col<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_tribethno"><H6>Domaine:</H6>^ca_objects.dom_tribethno<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_nat"><H6>Domaine:</H6>^ca_objects.dom_nat<br/></ifdef>}}}
+
+                {{{<ifdef code="ca_objects.mat_et_techniques">^ca_objects.mat_et_techniques<br/></ifdef>}}}
 
 				{{{<ifdef code="ca_objects.description">
-					<H6>Description</H6>
-					<span class="trimText">^ca_objects.description</span>
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.work_dimensions">
-					<H6>Dimensions</H6>
-					<span class="trimText">^ca_objects.work_dimensions.dimensions_width x ^ca_objects.work_dimensions.dimensions_height x ^ca_objects.work_dimensions.dimensions_depth</span>
-				</ifdef>}}}	
-				{{{<ifdef code="ca_objects.work_dimensions.dimensions_type"> <span class="trimText">(^ca_objects.work_dimensions.dimensions_type) </span></ifdef>}}} 	
-				
-				{{{<ifdef code="ca_objects.inscriptions">
-					<H6>Inscriptions</H6>
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.inscriptions.inscription_transcription"> <span class="trimText">"^ca_objects.inscriptions.inscription_transcription" </span></ifdef>}}} 
-				{{{<ifdef code="ca_objects.inscriptions.inscription_place"> <span class="trimText">^ca_objects.inscriptions.inscription_place </span></ifdef>}}} 
-				{{{<ifdef code="ca_objects.inscriptions.inscription_type"> <span class="trimText">(^ca_objects.inscriptions.inscription_type) </span></ifdef>}}} 
-				
-				<HR>
-				{{{<ifdef code="ca_objects.biblio">
-					<H6>Références bibliographiques</H6>
-					<span class="trimText">^ca_objects.biblio</span>
+					<span class="trimText"><br/>^ca_objects.description</span>
 				</ifdef>}}}
 				
-				<ifdef code="ca_objects.external_link"><H6>Liens externes</H6></ifdef>
-				<a href={{{<ifdef code="ca_objects.external_link"> ^ca_objects.external_link.url_entry</ifdef>}}}> {{{<ifdef code="ca_objects.external_link"> ^ca_objects.external_link.url_source</ifdef>}}}</a>				
 				
-				{{{<ifdef code="ca_objects.ca_objects_location">
-					<H6>Emplacement courant</H6>
-					<span class="trimText">^ca_objects.ca_objects_location</span>
-				</ifdef>}}}
-				{{{<ifdef code="ca_objects.custodial_notes">
-					<H6>état de conservation</H6>
-					<span class="trimText">^ca_objects.custodial_notes</span>
-				</ifdef>}}}
-
+				{{{<ifdef code="ca_objects.dateSet.setDisplayValue"><H6>Date:</H6>^ca_objects.dateSet.setDisplayValue<br/></ifdev>}}}
 				
-				{{{<ifdef code="ca_objects.date"><H6>Date</H6>^ca_objects.date.dates_value <i></i></ifdev>}}}
-				{{{<ifdef code="ca_objects.date.dates_type">(^ca_objects.date.dates_type) <br/></ifdev>}}}
-				{{{<ifdef code="ca_objects.lieu"><H6>Lieu</H6><span class="trimText">^ca_objects.lieu.lieu_name </span></ifdev>}}}
-				{{{<ifdef code="ca_objects.lieu.lieu_type"> <span class="trimText">(^ca_objects.lieu.lieu_type) </span></ifdef>}}} 	
-
 				<hr></hr>
 					<div class="row">
 						<div class="col-sm-6">		
-							{{{<ifcount code="ca_entities" min="1" max="1"><H6>Personne liée</H6></ifcount>}}}
-							{{{<ifcount code="ca_entities" min="2"><H6>Personnes liées</H6></ifcount>}}}
+							{{{<ifcount code="ca_entities" min="1" max="1"><H6>Related person</H6></ifcount>}}}
+							{{{<ifcount code="ca_entities" min="2"><H6>Related people</H6></ifcount>}}}
 							{{{<unit relativeTo="ca_entities" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 							
 							
-							{{{<ifcount code="ca_places" min="1" max="1"><H6>Lieu lié</H6></ifcount>}}}
-							{{{<ifcount code="ca_places" min="2"><H6>Lieux liés</H6></ifcount>}}}
+							{{{<ifcount code="ca_places" min="1" max="1"><H6>Related place</H6></ifcount>}}}
+							{{{<ifcount code="ca_places" min="2"><H6>Related places</H6></ifcount>}}}
 							{{{<unit relativeTo="ca_places" delimiter="<br/>"><l>^ca_places.preferred_labels.name</l></unit>}}}
 							
-							{{{<ifcount code="ca_list_items" min="1" max="1"><H6>Terme lié</H6></ifcount>}}}
-							{{{<ifcount code="ca_list_items" min="2"><H6>Termes liés</H6></ifcount>}}}
+							{{{<ifcount code="ca_list_items" min="1" max="1"><H6>Related Term</H6></ifcount>}}}
+							{{{<ifcount code="ca_list_items" min="2"><H6>Related Terms</H6></ifcount>}}}
 							{{{<unit relativeTo="ca_list_items" delimiter="<br/>">^ca_list_items.preferred_labels.name</unit>}}}
 							
-							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6>Termes LC</H6></ifcount>}}}
+							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6>LC Terms</H6></ifcount>}}}
 							{{{<unit delimiter="<br/>">^ca_objects.LcshNames</unit>}}}
 						</div><!-- end col -->				
 						<div class="col-sm-6 colBorderLeft">
