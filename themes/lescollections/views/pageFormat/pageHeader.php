@@ -113,11 +113,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav">
-				<!--ACCUEIL<=>ABOUT  ACTUALITÉS=>AnchorCMS  PARCOURIR LES COLLECTIONS  EN SAVOIR PLUS POUR EN FAIRE DAVANTAGE  GALERIE  CONTACT-->
-
-                    <!--A MODIFIER, NON FONCTIONNEL -->
-                    <li <?php print ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("A propos"), "", "", "About", "Index"); ?></li>
-					<li><a href="/blog">Blog</a></li>
+	<li><a href="/blog">Blog</a></li>
 <?php
 						print $this->render("pageFormat/browseMenu.php");
 ?>	

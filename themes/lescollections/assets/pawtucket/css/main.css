@@ -21,13 +21,13 @@ a, a:active, a:focus {
 }
 
 H1, h1, H2, h2, H3, h3, H4, h4, H5, h5, H6, h6{
-	font-family: Lato;
+	font-family: Calibri;
 	font-weight: normal;
 	font-style: normal;
 }
 H1, h1{
 	font-size: 20px;
-	color:#19bed1;
+	color:#2927A0;
 	text-transform:uppercase;
 	margin-top:0px;
 }
@@ -36,7 +36,7 @@ H1 .btn-group{
 }
 H2, h2{
 	font-size: 18px;
-	color:#19bed1;
+	color:#43A3AE;
 }
 H3, h3{
 	font-size: 16px;
@@ -218,6 +218,7 @@ h1 i {
 }
 .navbar.active {
 	font-weight:normal;
+
 }
 .dropdown-menu{
 	font-size:12px;
@@ -226,7 +227,8 @@ h1 i {
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.176);
 }
 .navbar .navbar-nav > .active > a {
-  	 background-color: #E7E7E7;
+    padding-left: 10px;
+    padding-right: 10px;
     color: #555555;
 }
 .nav > li > a, .nav > li > a:hover, .nav > li > a:focus {
@@ -257,10 +259,12 @@ h1 i {
 }
 .navbar-default .navbar-nav > li > a {
     font-family: "Lato", "proxima-nova", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-weight: 900;
-    font-size:14.5px !important;
-    text-transform: uppercase;
-    color: #774553;
+    font-weight: 300;
+    font-size:18px !important;
+    text-transform: none;
+    color: #3B7984;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-right: 1.75em;
     font-size: .60em;
     white-space: nowrap;
@@ -377,7 +381,6 @@ h1 i {
 }
 @media (max-width: 767px) {
 	.btn-search {
-		position:absolute;
 		right:5px;
 		top:3px;
 	}
@@ -1113,7 +1116,7 @@ a.browseRemoveFacet img {
 /* front page */
 /* --------------------------------- */
 .front H1{
-	color:#858585;
+	color:#6C6666;
 	line-height:1.3;
 	text-transform:none;
 	padding-top:50px;
