@@ -14,24 +14,24 @@
 		<div class="row">
 		<div class="col-md-9">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-4 ">
 					<div class="form-group<?php print (($va_errors["name"]) ? " has-error" : ""); ?>">
-						<label for="name">Name</label>
-						<input type="text" class="form-control input-sm" id="email" placeholder="Enter name" name="name" value="{{{name}}}">
+						<label for="name">Nom</label>
+						<input type="text" class="form-control input-sm row1" id="email" placeholder="Entrez votre nom" name="name" value="{{{name}}}">
 					</div>
 				</div><!-- end col -->
-				<div class="col-sm-4">
+				<div class="col-sm-4 ">
 					<div class="form-group<?php print (($va_errors["email"]) ? " has-error" : ""); ?>">
-						<label for="email">Email address</label>
-						<input type="text" class="form-control input-sm" id="email" placeholder="Enter email" name="email" value="{{{email}}}">
+						<label for="email">Adresse mail</label>
+						<input type="text" class="form-control input-sm row1" id="email" placeholder="Entrez votre email" name="email" value="{{{email}}}">
 					</div>
 				</div><!-- end col -->
 				<div class="col-sm-4">
 					<div class="form-group<?php print (($va_errors["security"]) ? " has-error" : ""); ?>">
-						<label for="security">Security Question</label>
-						<div class='row'>
+						<label for="security">Question de sécurité</label>
+						<div class='row secu'>
 							<div class='col-sm-4'>
-								<p class="form-control-static"><?php print $vn_num1; ?> + <?php print $vn_num2; ?> = </p>
+								<p class="form-control-static"><?php print $vn_num1; ?> + <?php print $vn_num2; ?> =  </p>
 							</div>
 							<div class='col-sm-4'>
 								<input name="security" value="" id="security" type="text" class="form-control input-sm" />
@@ -51,7 +51,7 @@
 			</div><!-- end col -->
 		</div><!-- end row -->
 		<div class="form-group">
-			<button type="submit" class="btn btn-default">Send</button>
+			<button type="submit" class="btn btn-default">Envoyer</button>
 		</div><!-- end form-group -->
 		<input type="hidden" name="sum" value="<?php print $vn_sum; ?>">
 	</form>

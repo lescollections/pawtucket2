@@ -5,8 +5,8 @@
 
 {{{<ifdef code="ca_objects.description">^ca_objects.description<br/><br/></ifdef>}}}
 
-{{{<ifcount code="ca_entities" min="1" max="1"><b>Related person: </b></ifcount>}}}
-{{{<ifcount code="ca_entities" min="2"><b>Related people: </b></ifcount>}}}
+{{{<ifcount code="ca_entities" min="1" max="1"><b>Personne liée: </b></ifcount>}}}
+{{{<ifcount code="ca_entities" min="2"><b>Personnes liées: </b></ifcount>}}}
 {{{<unit relativeTo="ca_entities" delimiter=", "><l>^ca_entities.preferred_labels.displayname</l></unit><br/><br/>}}}
 
 

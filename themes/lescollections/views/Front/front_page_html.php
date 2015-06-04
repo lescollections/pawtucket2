@@ -30,12 +30,25 @@
  * ----------------------------------------------------------------------
  */
 		print $this->render("Front/featured_set_slideshow_html.php");
+if (!defined("__LESCOLLECTIONS_NAME__")) {
+    define("__LESCOLLECTIONS_NAME__","lescollections.fr");
+}
+if (!defined("__LESCOLLECTIONS_SUBNAME__")) {
+    define("__LESCOLLECTIONS_SUBNAME__","gestion et publication de vos collections");
+}
+if (!defined("__LESCOLLECTIONS_INTRO__")) {
+    define("__LESCOLLECTIONS_INTRO__","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, orci quis vehicula eleifend, metus elit laoreet elit.");
+}
 ?>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<H1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate, orci quis vehicula eleifend, metus elit laoreet elit.</H1>
-		</div><!--end col-sm-8-->
+            <H1><?php print __LESCOLLECTIONS_NAME__; ?><br/><small>
+                    <?php print __LESCOLLECTIONS_SUBNAME__; ?></small></H1>
+            <p class="front_page">
+                <?php print __LESCOLLECTIONS_INTRO__; ?>
+            </p>
+        </div><!--end col-sm-8-->
 		<div class="col-sm-4">
 <?php
 		print $this->render("Front/gallery_set_links_html.php");

@@ -26,8 +26,8 @@ H1, h1, H2, h2, H3, h3, H4, h4, H5, h5, H6, h6{
 	font-style: normal;
 }
 H1, h1{
-	font-size: 20px;
-	color:#2927A0;
+	font-size: 24px;
+	color: rgba(231, 114, 26, 0.95);
 	text-transform:uppercase;
 	margin-top:0px;
 }
@@ -77,12 +77,31 @@ label {
 }	
 .container {
 	max-width:5000px;
+    -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .form-control{
 	font-size:12px;
 }
 .alignright {text-align:right;}
 
+.front_page{
+    padding-bottom: 10px;
+    padding-left: 3em;
+    font-size: 1.2em;
+    padding-right: 0.5em;
+}
+.row1{
+    width: 95%;
+}
+.secu{
+    margin-top: 0px!important;
+}
+
+.form-control-static{
+    text-align: right;
+    padding-right: 5px;
+}
 /* buttons and utils */
 .bGear:hover, .bGear:active{
 	cursor: pointer;
@@ -1116,16 +1135,19 @@ a.browseRemoveFacet img {
 /* front page */
 /* --------------------------------- */
 .front H1{
-	color:#6C6666;
+    font-size: 2.4em;
+	color: #222;
 	line-height:1.3;
 	text-transform:none;
-	padding-top:50px;
+	padding-top:10px;
 }
 @media (min-width: 768px) {
 	.front H1 {
-		font-size:28px;
+        font-weight: 300;
+		font-size:40px;
 		padding-left:25px;
 		padding-right:25px;
+
 	}
 }
 .front .jcarousel-wrapper{
