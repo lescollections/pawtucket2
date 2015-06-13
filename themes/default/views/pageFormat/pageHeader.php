@@ -1,6 +1,6 @@
 <?php
 /* ----------------------------------------------------------------------
- * views/pageFormat/pageHeader.php : 
+ * views/pageFormat/pageHeader.php :
  * ----------------------------------------------------------------------
  * CollectiveAccess
  * Open-source collections management software
@@ -15,10 +15,10 @@
  * the terms of the provided license as published by Whirl-i-Gig
  *
  * CollectiveAccess is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * WITHOUT ANY WARRANTIES whatsoever, including any implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * This source code is free and modifiable under the terms of 
+ * This source code is free and modifiable under the terms of
  * GNU General Public License. (http://www.gnu.org/copyleft/gpl.html). See
  * the "license.txt" file for details, or visit the CollectiveAccess web site at
  * http://www.CollectiveAccess.org
@@ -38,7 +38,7 @@
 		}
 		$vs_user_links .= "<li>".caNavLink($this->request, _t('User Profile'), '', '', 'LoginReg', 'profileForm', array())."</li>";
 		$vs_user_links .= "<li>".caNavLink($this->request, _t('Logout'), '', '', 'LoginReg', 'Logout', array())."</li>";
-	} else {	
+	} else {
 		if (!$this->request->config->get('dont_allow_registration_and_login') || $this->request->config->get('pawtucket_requires_login')) { $vs_user_links .= "<li><a href='#' onclick='caMediaPanel.showPanel(\"".caNavUrl($this->request, '', 'LoginReg', 'LoginForm', array())."\"); return false;' >"._t("Login")."</a></li>"; }
 		if (!$this->request->config->get('dont_allow_registration_and_login')) { $vs_user_links .= "<li><a href='#' onclick='caMediaPanel.showPanel(\"".caNavUrl($this->request, '', 'LoginReg', 'RegisterForm', array())."\"); return false;' >"._t("Register")."</a></li>"; }
 	}
@@ -48,14 +48,29 @@
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
-	
+
 	<script type="text/javascript">window.caBasePath = '<?php print $this->request->getBaseUrlPath(); ?>';</script>
 
 	<?php print MetaTagManager::getHTML(); ?>
 	<?php print AssetLoadManager::getLoadHTML($this->request); ?>
 
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-57x57.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="60x60" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-60x60.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-72x72.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-76x76.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-114x114.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-120x120.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-144x144.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-152x152.png'); ?>" />
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php print caGetThemeGraphic($this->request, 'favicon/apple-icon-180x180.png'); ?>" />
+	<link rel="icon" type="image/png" sizes="192x192"  href="<?php print caGetThemeGraphic($this->request, 'favicon/android-icon-192x192.png'); ?>" />
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php print caGetThemeGraphic($this->request, 'favicon/favicon-32x32.png'); ?>" />
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php print caGetThemeGraphic($this->request, 'favicon/favicon-96x96.png'); ?>" />
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php print caGetThemeGraphic($this->request, 'favicon/favicon-16x16.png'); ?>" />
+	<meta name="msapplication-TileImage" content="<?php print caGetThemeGraphic($this->request, 'favicon/ms-icon-144x144.png">
+
 	<title><?php print (MetaTagManager::getWindowTitle()) ? MetaTagManager::getWindowTitle() : $this->request->config->get("app_display_name"); ?></title>
-	
+
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
     		jQuery('#browse-menu').on('click mouseover mouseout mousemove mouseenter',function(e) { e.stopPropagation(); });
@@ -64,7 +79,7 @@
 <?php
 	//
 	// Pull in JS and CSS for debug bar
-	// 
+	//
 	if(Debug::isEnabled()) {
 		$o_debugbar_renderer = Debug::$bar->getJavascriptRenderer();
 		$o_debugbar_renderer->setBaseUrl(__CA_URL_ROOT__.$o_debugbar_renderer->getBaseUrl());
@@ -95,7 +110,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 			<!-- bs-user-navbar-collapse is the user menu that shows up in the toggle menu - hidden at larger size -->
 			<div class="collapse navbar-collapse" id="user-navbar-toggle">
-				<ul class="nav navbar-nav">					
+				<ul class="nav navbar-nav">
 <?php
 							print $vs_user_links;
 ?>
@@ -124,7 +139,7 @@
 					<li <?php print ($this->request->getController() == "About") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("About"), "", "", "About", "Index"); ?></li>
 <?php
 						print $this->render("pageFormat/browseMenu.php");
-?>	
+?>
 					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Gallery"), "", "", "Gallery", "Index"); ?></li>
 					<li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
 				</ul>
