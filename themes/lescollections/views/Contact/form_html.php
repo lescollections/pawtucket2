@@ -16,19 +16,19 @@
 			<div class="row">
 				<div class="col-sm-4 ">
 					<div class="form-group<?php print (($va_errors["name"]) ? " has-error" : ""); ?>">
-						<label for="name">Nom</label>
+						<label for="name"><?php print _t("name"); ?></label>
 						<input type="text" class="form-control input-sm row1" id="email" placeholder="Entrez votre nom" name="name" value="{{{name}}}">
 					</div>
 				</div><!-- end col -->
 				<div class="col-sm-4 ">
 					<div class="form-group<?php print (($va_errors["email"]) ? " has-error" : ""); ?>">
-						<label for="email">Adresse mail</label>
+						<label for="email"><?php print _t("Mail Address"); ?></label>
 						<input type="text" class="form-control input-sm row1" id="email" placeholder="Entrez votre email" name="email" value="{{{email}}}">
 					</div>
 				</div><!-- end col -->
 				<div class="col-sm-4">
 					<div class="form-group<?php print (($va_errors["security"]) ? " has-error" : ""); ?>">
-						<label for="security">Question de sécurité</label>
+						<label for="security"><?php print _t("Security question"); ?></label>
 						<div class='row secu'>
 							<div class='col-sm-4'>
 								<p class="form-control-static"><?php print $vn_num1; ?> + <?php print $vn_num2; ?> =  </p>
@@ -45,13 +45,13 @@
 		<div class="row">
 			<div class="col-sm-8">
 				<div class="form-group<?php print (($va_errors["message"]) ? " has-error" : ""); ?>">
-					<label for="message">Message</label>
+					<label for="message"><?php print _t("Message"); ?></label>
 					<textarea class="form-control input-sm" id="message" name="message" rows="5">{{{message}}}</textarea>
 				</div>
 			</div><!-- end col -->
 		</div><!-- end row -->
 		<div class="form-group">
-			<button type="submit" class="btn btn-default">Envoyer</button>
+			<button type="submit" class="btn btn-default"><?php print _t("Send"); ?></button>
 		</div><!-- end form-group -->
 		<input type="hidden" name="sum" value="<?php print $vn_sum; ?>">
 	</form>

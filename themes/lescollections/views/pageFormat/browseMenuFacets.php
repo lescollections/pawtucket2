@@ -56,9 +56,7 @@
 	</div><!--end container-->	
 <?php
 	} else {
-?>
-		No facets available
-<?php
+         print _t("No facets available");
 	}
 ?>
 

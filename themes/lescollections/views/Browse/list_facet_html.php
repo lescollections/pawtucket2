@@ -87,7 +87,9 @@
 				$vs_facet_list .= "<div>".caNavLink($this->request, $va_item['label'], '', '*', '*', '*', array('facet' => $vs_facet_name, 'id' => $va_item['id'], 'view' => $vs_view, 'key' => $vs_key))."</div>\n";
 			$vn_c++;
 		}
-		print "<H1 id='bScrollListLabel'>".$va_facet_info["label_plural"]."<span class='bFilterCount'> (".sizeof($va_facet_content)." total)</span></H1>";
+		print "<H1 id='bScrollListLabel'>".$va_facet_info["label_plural"]."<span class='bFilterCount'> (".sizeof($va_facet_content);
+        print _t("total");
+        print ")</span></H1>";
 		if($va_facet_info["group_mode"]== "alphabetical"){
 			print "<div id='bLetterBar'>";
 			foreach($va_letter_bar as $vs_letter){

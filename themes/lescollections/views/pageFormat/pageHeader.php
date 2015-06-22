@@ -78,11 +78,11 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle navbar-toggle-user" data-toggle="collapse" data-target="#user-navbar-toggle">
-					<span class="sr-only">User Options</span>
+					<span class="sr-only"><?php print _t("User Options"); ?></span>
 					<span class="glyphicon glyphicon-user"></span>
 				</button>
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-main-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
+					<span class="sr-only"><?php print _t("Toggle navigation"); ?></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -113,11 +113,11 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav">
-	<li><a href="/blog">Blog</a></li>
+	<li><a href="/blog"><?php print _t("Blog"); ?></a></li>
 <?php
 						print $this->render("pageFormat/browseMenu.php");
 ?>	
-					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, "Galerie", "", "", "Gallery", "Index"); ?></li>
+					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Galerie"), "", "", "Gallery", "Index"); ?></li>
 
                     <li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
 
@@ -125,7 +125,7 @@
 				<div>
 				<form class="navbar-form" role="search" action="<?php print caNavUrl($this->request, '', 'MultiSearch', 'Index'); ?>">
 						<div class="form-group formOutline">
-							<input type="text" class="form-control" placeholder="Search" name="search">
+							<input type="text" class="form-control" placeholder=<?php print _t("Search"); ?> name="search">
 						</div>
 						<button type="submit" class="btn-search"><span class="glyphicon glyphicon-search"></span></button>
 				</form>

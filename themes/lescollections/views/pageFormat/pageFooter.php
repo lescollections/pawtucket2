@@ -34,14 +34,14 @@
 				<li><i class="fa fa-youtube-play"></i></li>
 			</ul>
 			<div>
-				Footer text here
+                <?php print _t("Footer text here"); ?>
 			</div>
 			<ul class="list-inline">
-				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li>
+				<li><a href="#"><?php print _t("Link 1"); ?></a></li>
+				<li><a href="#"><?php print _t("Link 2"); ?></a></li>
+				<li><a href="#"><?php print _t("Link 3"); ?></a></li>
 			</ul>
-			<div><small>powered by <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
+			<div><small><?php print _t("powered by"); ?> <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
 		</div><!-- end footer -->
 <?php
 	//
