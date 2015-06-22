@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-22 15:25+0100\n"
-"PO-Revision-Date: 2015-06-22 15:34+0100\n"
+"PO-Revision-Date: 2015-06-22 15:37+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -25114,11 +25114,11 @@ msgstr "TOUT PARCOURIR"
 
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/Gallery/index_html.php:22
 msgid "VIEW GALLERY"
-msgstr ""
+msgstr "VOIR LA GALERIE"
 
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/pageFormat/browseMenuFacets.php:35
 msgid "Browse %1 by:"
-msgstr ""
+msgstr "Parcourir %1 par: "
 
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/pageFormat/pageHeader.php:108
 msgid "Organizations"
