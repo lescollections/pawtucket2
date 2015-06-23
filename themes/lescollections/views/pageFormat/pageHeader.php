@@ -114,9 +114,8 @@
 				</ul>
 				<ul class="nav navbar-nav">
 	<li><a href="/blog"><?php print _t("Blog"); ?></a></li>
-<?php
-						print $this->render("pageFormat/browseMenu.php");
-?>	
+                    <li><a href="/Browse/objects"><?php print _t("Collections"); ?></a></li>
+
 					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Galerie"), "", "", "Gallery", "Index"); ?></li>
 
                     <li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>

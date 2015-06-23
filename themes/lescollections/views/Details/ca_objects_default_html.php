@@ -25,28 +25,33 @@
 			</div><!-- end col -->
 			
 			<div class='col-sm-6 col-md-6 col-lg-5'>
-				<H4>{{{<unit relativeTo="ca_collections" delimiter="<br/>"><l>^ca_collections.preferred_labels.name</l></unit><ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
-				<H6>{{{<unit>^ca_objects.type_id</unit>}}}</H6>
+                <p>{{{<ifdef code="ca_objects.idno">^ca_objects.idno<br/></ifdef>}}}</p>
+                <H4>{{{<unit relativeTo="ca_collections" delimiter="<br/>"><l>^ca_collections.preferred_labels.name</l></unit><ifcount min="1" code="ca_collections"> ➔ </ifcount>}}}{{{ca_objects.preferred_labels.name}}}</H4>
+				<H6>{{{<unit>^ca_objects.type_id</unit>}}}
+                
+                >
+
+                    {{{<ifdef code="ca_objects.dom_art">^ca_objects.dom_art<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_antiq">^ca_objects.dom_antiq<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_archi">^ca_objects.dom_archi<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_jo">^ca_objects.dom_jo<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_mob">^ca_objects.dom_mob<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_scitech">^ca_objects.dom_scitech<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_manuimpri">^ca_objects.dom_manuimpri<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_imgson">^ca_objects.dom_imgson<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_col">^ca_objects.dom_col<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_tribethno">^ca_objects.dom_tribethno<br/></ifdef>}}}
+                    {{{<ifdef code="ca_objects.dom_nat">^ca_objects.dom_nat<br/></ifdef>}}}</H6>
 				<HR>
 				
 				{{{<ifdef code="ca_objects.measurementSet.measurements">^ca_objects.measurementSet.measurements (^ca_objects.measurementSet.measurementsType)</ifdef><ifdef code="ca_objects.measurementSet.measurements,ca_objects.measurementSet.measurements"> x </ifdef><ifdef code="ca_objects.measurementSet.measurements2">^ca_objects.measurementSet.measurements2 (^ca_objects.measurementSet.measurementsType2)</ifdef>}}}
 				
 				
-				{{{<ifdef code="ca_objects.idno"><H6><?php print _t("Identifiant"); ?></H6>^ca_objects.idno<br/></ifdef>}}}
+
 				{{{<ifdef code="ca_objects.containerID"><H6><?php print _t("Box/series"); ?></H6>^ca_objects.containerID<br/></ifdef>}}}
 
                 {{{<ifdef code="ca_objects.work_dimensions"><H6><?php print _t("Dimensions"); ?></H6>^ca_objects.work_dimensions.dimensions_width ^ca_objects.work_dimensions.dimensions_height ^ca_objects.work_dimensions.dimensions_depth ^ca_objects.work_dimensions.dimensions_type<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_art"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_art<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_antiq"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_antiq<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_archi"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_archi<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_jo"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_jo<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_mob"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_mob<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_scitech"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_scitech<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_manuimpri"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_manuimpri<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_imgson"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_imgson<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_col"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_col<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_tribethno"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_tribethno<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_nat"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_nat<br/></ifdef>}}}
+
 
                 {{{<ifdef code="ca_objects.mat_et_techniques">^ca_objects.mat_et_techniques<br/></ifdef>}}}
 

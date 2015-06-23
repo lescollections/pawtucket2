@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-22 16:12+0100\n"
-"PO-Revision-Date: 2015-06-23 10:33+0100\n"
+"PO-Revision-Date: 2015-06-23 10:53+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -5401,7 +5401,7 @@ msgstr "Vous êtes connecté"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:232
 msgid "You have been logged in"
-msgstr ""
+msgstr "Vous êtes connecté"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:251
 msgid "You have been logged out"
