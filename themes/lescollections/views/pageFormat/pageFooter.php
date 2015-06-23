@@ -29,17 +29,14 @@
 		<div style="clear:both; height:1px;"><!-- empty --></div>
 		<div id="footer">
 			<ul class="list-inline pull-right social">
-				<li><i class="fa fa-twitter"></i></li>
-				<li><i class="fa fa-facebook-square"></i></li>
-				<li><i class="fa fa-youtube-play"></i></li>
+				<li><a href="http://blog.lescollections.fr"><i class="fa fa-tumblr-square"></i></a></li>
+				<li><a href="https://youtube.com/user/ideesculture"><i class="fa fa-youtube-play"></i></a></li>
 			</ul>
 			<div>
-                <?php print _t("Footer text here"); ?>
+                <!--<?php print _t("Footer text here"); ?>-->
 			</div>
 			<ul class="list-inline">
-				<li><a href="#"><?php print _t("Link 1"); ?></a></li>
-				<li><a href="#"><?php print _t("Link 2"); ?></a></li>
-				<li><a href="#"><?php print _t("Link 3"); ?></a></li>
+				<li><a href="http://www.lescollections.fr/"><?php print _t("lescollections.fr"); ?></a></li>
 			</ul>
 			<div><small><?php print _t("powered by"); ?> <a href="http://www.collectiveaccess.org">CollectiveAccess 2015</a></small></div>
 		</div><!-- end footer -->

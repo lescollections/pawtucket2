@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-22 16:12+0100\n"
-"PO-Revision-Date: 2015-06-23 10:03+0100\n"
+"PO-Revision-Date: 2015-06-23 10:33+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -5256,7 +5256,7 @@ msgstr "downloaded_file.%1"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:52
 msgid "Featured Galleries"
-msgstr "galeries"
+msgstr "Galeries"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:56
 msgid "gallery"
@@ -7854,7 +7854,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:771 c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:865
 #: c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:916
 msgid "Comments"
-msgstr "Commentaires"
+msgstr "Commentaires "
 
 #: c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:773
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:124
@@ -20393,7 +20393,7 @@ msgstr "commentaire"
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:235
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/Sets/present_html.php:53
 msgid "comments"
-msgstr "commentaires"
+msgstr "commentaires "
 
 #: c:\www\htdocs\pawtucket_cs/app/models/ca_item_comments.php:50
 msgid "Unique numeric identifier used by CollectiveAccess internally to identify this comment"
