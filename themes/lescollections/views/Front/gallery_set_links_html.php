@@ -30,7 +30,7 @@
  * ----------------------------------------------------------------------
  */
 ?>
-			<h2>Parcourir les Galeries:</h2>
+			<h2><?php print _t("Parcourir les galeries:"); ?></h2>
 <?php
 			print caGetGallerySetsAsList($this->request, "nav nav-pills nav-stacked");
 ?>
