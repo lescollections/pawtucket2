@@ -114,7 +114,7 @@
 				</ul>
 				<ul class="nav navbar-nav">
 	<li><a href="/blog"><?php print _t("Blog"); ?></a></li>
-                    <li><a href="/Browse/objects"><?php print _t("Collections"); ?></a></li>
+                    <li><a href="/index.php/Browse/objects"><?php print _t("Collections"); ?></a></li>
 
 					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Galerie"), "", "", "Gallery", "Index"); ?></li>
 
