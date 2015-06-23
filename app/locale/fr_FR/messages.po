@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-22 16:12+0100\n"
-"PO-Revision-Date: 2015-06-23 09:38+0100\n"
+"PO-Revision-Date: 2015-06-23 10:03+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -4004,14 +4004,14 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/conf/browse.conf:106
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/conf/browse.conf:386
 msgid "organization"
-msgstr ""
+msgstr "organisation"
 
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:41 c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:179
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:281
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/conf/browse.conf:107
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/conf/browse.conf:387
 msgid "organizations"
-msgstr ""
+msgstr "organisations"
 
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:53 c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:265
 msgid "individual"
@@ -5200,24 +5200,24 @@ msgstr "Veuillez entrer votre message"
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:899
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:305
 msgid "Please answer the security question."
-msgstr ""
+msgstr "Veuillez répondre à la question de sécurité"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:902
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:308
 msgid "Your answer was incorrect, please try again"
-msgstr ""
+msgstr "Votre réponse à la question de sécurité est incorrecte. Recommencez"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:956
 msgid "Your email was sent"
-msgstr ""
+msgstr "Votre email a été envoyé"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:972
 msgid "There were errors in your form"
-msgstr ""
+msgstr "Il y a des erreurs dans votre formulaire"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:975
 msgid "Your message was sent"
-msgstr ""
+msgstr "Votre message a été envoyé"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:1018
 #: c:\www\htdocs\pawtucket_cs/app/controllers/DetailController.php:1023
@@ -5256,11 +5256,11 @@ msgstr "downloaded_file.%1"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:52
 msgid "Featured Galleries"
-msgstr ""
+msgstr "galeries"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:56
 msgid "gallery"
-msgstr ""
+msgstr "galerie"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:92
 #: c:\www\htdocs\pawtucket_cs/app/controllers/GalleryController.php:107
@@ -5270,7 +5270,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/pageFormat/pageHeader.php:156
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/pageFormat/pageHeader.php:104
 msgid "Gallery"
-msgstr ""
+msgstr "Galerie"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:45
 #: c:\www\htdocs\pawtucket_cs/themes/bok/views/pageFormat/pageHeader.php:50
@@ -5304,7 +5304,7 @@ msgstr "Se connecter"
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:113
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:259
 msgid "Registration is not enabled"
-msgstr ""
+msgstr "L'inscription n'est pas activée"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:55
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:263
@@ -5330,7 +5330,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/pageFormat/pageHeader.php:37
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/pageFormat/pageHeader.php:74
 msgid "Register"
-msgstr "Inscrivez-vous"
+msgstr "S'inscrire"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:77
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:108
@@ -5451,7 +5451,7 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:505
 msgid "Login/Register to join \"%1\""
-msgstr ""
+msgstr "Se connecter ou s'inscrire pour rejoindre \"%1\""
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:509
 msgid "Invalid user group"
@@ -5524,7 +5524,7 @@ msgstr "Veuillez entrer le nom de votre %1"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:392
 msgid "Saved %1."
-msgstr ""
+msgstr "%1 enregistré"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:433
 msgid "Removed group access to %1"
@@ -7845,7 +7845,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:695
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/Gallery/set_item_info_html.php:320
 msgid "Login/register to comment on this object"
-msgstr ""
+msgstr "Se connecter ou s'inscrire pour laisser un commentaire sur cet objet"
 
 #: c:\www\htdocs\pawtucket_cs/app/helpers/themeHelpers.php:757
 msgid "this %1 contains no items"
@@ -11818,7 +11818,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:1537
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:1582
 msgid "Import/Export"
-msgstr ""
+msgstr "Import/Export"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:1085
 msgid "Load import mapping from Excel XLSX format file."
@@ -12223,7 +12223,7 @@ msgstr "Vous devez choisir un mot de passe."
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2075
 msgid "User name %1 does not exist"
-msgstr ""
+msgstr "Le nom d'utilisateur %1 n'existe pas"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2082
 msgid "Password change for user %1 failed: %2"
@@ -12875,7 +12875,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/lib/core/Auth/Adapters/ActiveDirectory.php:142
 #: c:\www\htdocs\pawtucket_cs/app/lib/core/Auth/Adapters/OpenLDAP.php:208
 msgid "User could not be found."
-msgstr ""
+msgstr "L'utilisateur est introuvable"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/core/Auth/Adapters/ExternalDB.php:67
 #: c:\www\htdocs\pawtucket_cs/app/lib/core/Auth/Adapters/ExternalDB.php:130
@@ -24388,7 +24388,7 @@ msgid ""
 "instructions on how to reset your password."
 msgstr ""
 "Pour réinitialiser votre mot de passe, veuillez entrer ci-dessous l'adresse email utilisée pour vous inscrire. Un message "
-"contenant des instructions sur la procédure à suivre pour obtenir un nouveau mot de passe va vous être envoyé."
+"va vous être envoyé pour obtenir un nouveau mot de passe."
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_collections_search_subview_html.php:55
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_entities_search_subview_html.php:49
@@ -24466,7 +24466,7 @@ msgstr "Votre recherche: %1 n'a retourné aucun résultat"
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/ajax_comments.php:65
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:244
 msgid "remove comment"
-msgstr ""
+msgstr "Supprimer le commentaire"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_add_set_item_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_add_set_item_html.php:51
@@ -24494,12 +24494,12 @@ msgstr "Partager %1"
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:51
 msgid "Select a group"
-msgstr ""
+msgstr "Choisissez un groupe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:52
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:52
 msgid "Select a user group"
-msgstr ""
+msgstr "Choisissez un groupe d'utilisateurs"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:62
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:62
@@ -24509,7 +24509,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:62
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:62
 msgid "Enter a user"
-msgstr ""
+msgstr "Entrez un utilisateur"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:62
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:62
@@ -24519,22 +24519,22 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:67
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:67
 msgid "Can read"
-msgstr ""
+msgstr "Peut lire"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:68
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:68
 msgid "Can edit"
-msgstr ""
+msgstr "Peut éditer"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_user_group_html.php:36
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_user_group_html.php:36
 msgid "User Group"
-msgstr ""
+msgstr " Groupe d'utilisateurs"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/present_html.php:65
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/present_html.php:65
 msgid "Back to %1"
-msgstr ""
+msgstr "Revenir à %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:39
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:39
@@ -24544,7 +24544,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:48
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:48
 msgid "User Groups"
-msgstr ""
+msgstr " Groupes d'utilisateurs"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:64
@@ -24565,14 +24565,14 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:52
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:66
 msgid "write access"
-msgstr ""
+msgstr "Accès en écriture"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:52
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:66
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:52
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_access_html.php:66
 msgid "read access"
-msgstr ""
+msgstr "Accès en lecture"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:53
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_access_html.php:67
@@ -24609,19 +24609,19 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/glenstone/views/Sets/set_detail_html.php:126
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:130
 msgid "Start presentation"
-msgstr ""
+msgstr "Commencer la présentation"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:135
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:135
 msgid "Download PDF as:"
-msgstr ""
+msgstr "Enregistrer le pdf comme: "
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:144
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:144
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:51
 msgid "New User Group"
-msgstr ""
+msgstr "Nouveau groupe d'utilisateurs"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:148
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:55
@@ -24629,7 +24629,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:148
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:55
 msgid "Manage Your User Groups"
-msgstr ""
+msgstr "Gérez vos groupes d'utilisateurs"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:198
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_list_html.php:55
@@ -24930,7 +24930,7 @@ msgstr "Enregistrer"
 
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:88
 msgid "send"
-msgstr ""
+msgstr "envoyer"
 
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/bundles/media_attribute_viewer_html.php:79
 msgid "Thumbnails"
