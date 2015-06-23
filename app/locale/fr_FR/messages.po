@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-22 16:12+0100\n"
-"PO-Revision-Date: 2015-06-23 10:53+0100\n"
+"PO-Revision-Date: 2015-06-23 11:30+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -23790,7 +23790,7 @@ msgstr "Résultat"
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:109
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_html.php:87
 msgid "%1 %2 %3"
-msgstr "%1 %2 %3"
+msgstr "%3 : %1 %2"
 
 #: c:\www\htdocs\pawtucket_cs/themes/colorado/views/Browse/browse_results_html.php:78
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:71
@@ -23822,7 +23822,7 @@ msgstr "Trier par: "
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:133
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_html.php:110
 msgid "Sort order:"
-msgstr ""
+msgstr "Ordre de tri: "
 
 #: c:\www\htdocs\pawtucket_cs/themes/colorado/views/Browse/browse_results_html.php:99
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:127
@@ -24203,7 +24203,7 @@ msgstr "Sélectionner les résultats à ajouter à %1"
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:150
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_html.php:127
 msgid "Download results as:"
-msgstr ""
+msgstr "Télécharger les résultats:"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:141
 #: c:\www\htdocs\pawtucket_cs/themes/glenstone/views/Browse/browse_results_html.php:127
