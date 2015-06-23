@@ -18,7 +18,7 @@
 				
 				<?php print caObjectRepresentationThumbnails($this->request, $this->getVar("representation_id"), $t_object, array("returnAs" => "bsCols", "linkTo" => "carousel", "bsColClasses" => "smallpadding col-sm-3 col-md-3 col-xs-4")); ?>
 				<div id="detailTools">
-					<div class="detailTool"><a href='#' onclick='jQuery("#detailComments").slideToggle(); return false;'><span class="glyphicon glyphicon-comment"></span>Comments (<?php print sizeof($va_comments); ?>)</a></div><!-- end detailTool -->
+					<div class="detailTool"><a href='#' onclick='jQuery("#detailComments").slideToggle(); return false;'><span class="glyphicon glyphicon-comment"></span><?php print _t("Comments"); ?>(<?php print sizeof($va_comments); ?>)</a></div><!-- end detailTool -->
 					<div id='detailComments'>{{{itemComments}}}</div><!-- end itemComments -->
 					<div class="detailTool"><span class="glyphicon glyphicon-share-alt"></span>{{{shareLink}}}</div><!-- end detailTool -->
 				</div><!-- end detailTools -->
@@ -32,21 +32,21 @@
 				{{{<ifdef code="ca_objects.measurementSet.measurements">^ca_objects.measurementSet.measurements (^ca_objects.measurementSet.measurementsType)</ifdef><ifdef code="ca_objects.measurementSet.measurements,ca_objects.measurementSet.measurements"> x </ifdef><ifdef code="ca_objects.measurementSet.measurements2">^ca_objects.measurementSet.measurements2 (^ca_objects.measurementSet.measurementsType2)</ifdef>}}}
 				
 				
-				{{{<ifdef code="ca_objects.idno"><H6>Identifiant:</H6>^ca_objects.idno<br/></ifdef>}}}
-				{{{<ifdef code="ca_objects.containerID"><H6>Box/series:</H6>^ca_objects.containerID<br/></ifdef>}}}
+				{{{<ifdef code="ca_objects.idno"><H6><?php print _t("Identifiant"); ?></H6>^ca_objects.idno<br/></ifdef>}}}
+				{{{<ifdef code="ca_objects.containerID"><H6><?php print _t("Box/series"); ?></H6>^ca_objects.containerID<br/></ifdef>}}}
 
-                {{{<ifdef code="ca_objects.work_dimensions"><H6>Dimensions:</H6>^ca_objects.work_dimensions.dimensions_width ^ca_objects.work_dimensions.dimensions_height ^ca_objects.work_dimensions.dimensions_depth ^ca_objects.work_dimensions.dimensions_type<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_art"><H6>Domaine:</H6>^ca_objects.dom_art<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_antiq"><H6>Domaine:</H6>^ca_objects.dom_antiq<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_archi"><H6>Domaine:</H6>^ca_objects.dom_archi<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_jo"><H6>Domaine:</H6>^ca_objects.dom_jo<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_mob"><H6>Domaine:</H6>^ca_objects.dom_mob<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_scitech"><H6>Domaine:</H6>^ca_objects.dom_scitech<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_manuimpri"><H6>Domaine:</H6>^ca_objects.dom_manuimpri<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_imgson"><H6>Domaine:</H6>^ca_objects.dom_imgson<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_col"><H6>Domaine:</H6>^ca_objects.dom_col<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_tribethno"><H6>Domaine:</H6>^ca_objects.dom_tribethno<br/></ifdef>}}}
-                {{{<ifdef code="ca_objects.dom_nat"><H6>Domaine:</H6>^ca_objects.dom_nat<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.work_dimensions"><H6><?php print _t("Dimensions"); ?></H6>^ca_objects.work_dimensions.dimensions_width ^ca_objects.work_dimensions.dimensions_height ^ca_objects.work_dimensions.dimensions_depth ^ca_objects.work_dimensions.dimensions_type<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_art"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_art<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_antiq"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_antiq<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_archi"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_archi<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_jo"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_jo<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_mob"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_mob<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_scitech"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_scitech<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_manuimpri"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_manuimpri<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_imgson"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_imgson<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_col"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_col<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_tribethno"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_tribethno<br/></ifdef>}}}
+                {{{<ifdef code="ca_objects.dom_nat"><H6><?php print _t("Domaine"); ?></H6>^ca_objects.dom_nat<br/></ifdef>}}}
 
                 {{{<ifdef code="ca_objects.mat_et_techniques">^ca_objects.mat_et_techniques<br/></ifdef>}}}
 
@@ -55,25 +55,25 @@
 				</ifdef>}}}
 				
 				
-				{{{<ifdef code="ca_objects.dateSet.setDisplayValue"><H6>Date:</H6>^ca_objects.dateSet.setDisplayValue<br/></ifdev>}}}
+				{{{<ifdef code="ca_objects.dateSet.setDisplayValue"><H6><?php print _t("Date"); ?></H6>^ca_objects.dateSet.setDisplayValue<br/></ifdev>}}}
 				
 				<hr></hr>
 					<div class="row">
 						<div class="col-sm-6">		
-							{{{<ifcount code="ca_entities" min="1" max="1"><H6>Related person</H6></ifcount>}}}
-							{{{<ifcount code="ca_entities" min="2"><H6>Related people</H6></ifcount>}}}
+							{{{<ifcount code="ca_entities" min="1" max="1"><H6><?php print _t("Related person"); ?></H6></ifcount>}}}
+							{{{<ifcount code="ca_entities" min="2"><H6><?php print _t("Related people"); ?></H6></ifcount>}}}
 							{{{<unit relativeTo="ca_entities" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 							
 							
-							{{{<ifcount code="ca_places" min="1" max="1"><H6>Related place</H6></ifcount>}}}
-							{{{<ifcount code="ca_places" min="2"><H6>Related places</H6></ifcount>}}}
+							{{{<ifcount code="ca_places" min="1" max="1"><H6><?php print _t("Related place"); ?></H6></ifcount>}}}
+							{{{<ifcount code="ca_places" min="2"><H6><?php print _t("Related places"); ?></H6></ifcount>}}}
 							{{{<unit relativeTo="ca_places" delimiter="<br/>"><l>^ca_places.preferred_labels.name</l></unit>}}}
 							
-							{{{<ifcount code="ca_list_items" min="1" max="1"><H6>Related Term</H6></ifcount>}}}
-							{{{<ifcount code="ca_list_items" min="2"><H6>Related Terms</H6></ifcount>}}}
+							{{{<ifcount code="ca_list_items" min="1" max="1"><H6><?php print _t("Related Term"); ?></H6></ifcount>}}}
+							{{{<ifcount code="ca_list_items" min="2"><H6><?php print _t("Related Terms"); ?></H6></ifcount>}}}
 							{{{<unit relativeTo="ca_list_items" delimiter="<br/>">^ca_list_items.preferred_labels.name</unit>}}}
 							
-							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6>LC Terms</H6></ifcount>}}}
+							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6><?php print _t("LC Terms"); ?></H6></ifcount>}}}
 							{{{<unit delimiter="<br/>">^ca_objects.LcshNames</unit>}}}
 						</div><!-- end col -->				
 						<div class="col-sm-6 colBorderLeft">

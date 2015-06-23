@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CollectiveAccess Providence\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 15:25+0100\n"
-"PO-Revision-Date: 2015-06-22 15:37+0100\n"
+"POT-Creation-Date: 2015-06-22 16:12+0100\n"
+"PO-Revision-Date: 2015-06-23 09:38+0100\n"
 "Last-Translator: Caroline Solievna <caroline.solievna@ideesculture.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/collectiveaccess-providence/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -434,7 +434,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/conf/browse.conf:414 c:\www\htdocs\pawtucket_cs/themes/sva/conf/browse.conf:34
 #: c:\www\htdocs\pawtucket_cs/app/models/ca_collections.php:43
 msgid "collection"
-msgstr "Ajouter un titre"
+msgstr "collection"
 
 #: c:\www\htdocs\pawtucket_cs/app/conf/browse.conf:173 c:\www\htdocs\pawtucket_cs/app/conf/browse.conf:235
 #: c:\www\htdocs\pawtucket_cs/app/conf/browse.conf:329 c:\www\htdocs\pawtucket_cs/themes/chhe/conf/browse.conf:28
@@ -5297,7 +5297,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/pageFormat/pageHeader.php:36
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/pageFormat/pageHeader.php:73
 msgid "Login"
-msgstr "Identifiant"
+msgstr "Se connecter"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:51
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:82
@@ -5317,6 +5317,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/idigpaleo/views/pageFormat/pageHeader.php:37
 #: c:\www\htdocs\pawtucket_cs/themes/itinera/views/pageFormat/pageHeader.php:43
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_register_html.php:15
+#: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_register_html.php:71
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/pageFormat/pageHeader.php:43
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/pageFormat/pageHeader.php:73
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/pageFormat/pageHeader.php:135
@@ -5329,7 +5330,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/pageFormat/pageHeader.php:37
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/pageFormat/pageHeader.php:74
 msgid "Register"
-msgstr ""
+msgstr "Inscrivez-vous"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:77
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:108
@@ -5363,7 +5364,7 @@ msgstr "Veuillez entrer votre nom"
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:148
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:299
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Les mots de passe ne correspondent pas"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:178
 msgid "Updated profile"
@@ -5379,11 +5380,11 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_profile_html.php:43
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_profile_html.php:43
 msgid "Reset Password"
-msgstr ""
+msgstr "Réinitialiser le mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:203
 msgid "Login failed"
-msgstr ""
+msgstr "La connexion a échoué."
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:211
 msgid " and added to the group"
@@ -5409,7 +5410,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:296
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:593
 msgid "Please enter and re-type your password."
-msgstr ""
+msgstr "Veuillez entrer et re-taper votre mot de passe."
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/LoginRegController.php:335
 msgid "User cannot register"
@@ -5571,7 +5572,7 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:571
 msgid "Shared %1 with group"
-msgstr ""
+msgstr "%1 partagé avec le groupe"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:594
 msgid "There were errors while sharing this %1 with %2"
@@ -5588,7 +5589,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:615
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:621
 msgid "Shared %1 with: "
-msgstr ""
+msgstr "%1 partagé avec:"
 
 #: c:\www\htdocs\pawtucket_cs/app/controllers/SetsController.php:682
 msgid "Please enter the name of your user group"
@@ -11357,7 +11358,7 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:165
 msgid "username %1 and password %2"
-msgstr ""
+msgstr "Nom d'utilisateur: %1 et mot de passe: %2"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:160
 msgid ""
@@ -12218,7 +12219,7 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2070
 msgid "You must specify a password"
-msgstr ""
+msgstr "Vous devez choisir un mot de passe."
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2075
 msgid "User name %1 does not exist"
@@ -12226,11 +12227,11 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2082
 msgid "Password change for user %1 failed: %2"
-msgstr ""
+msgstr "La modification du mot de passe pour l'utilisateur %1 a échoué: %2"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2085
 msgid "Changed password for user %1"
-msgstr ""
+msgstr "Mot de passe modifié pour l'utilisateur %1"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2088
 msgid "You must specify a user"
@@ -12238,19 +12239,19 @@ msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2097
 msgid "User name to reset password for."
-msgstr ""
+msgstr "Nom de l'utilisateur pour lequel réinitialiser le mot de passe."
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2098
 msgid "New password for user"
-msgstr ""
+msgstr "Nouveau mot de passe pour l'utilisateur"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2114
 msgid "Reset a user's password"
-msgstr ""
+msgstr "Réinitialiser le mot de passe d'un utilisateur"
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2121
 msgid "Reset a user's password."
-msgstr ""
+msgstr "Réinitialiser le mot de passe d'un utilisateur."
 
 #: c:\www\htdocs\pawtucket_cs/app/lib/ca/Utils/CLIUtils.php:2143
 msgid "You must specify a valid file"
@@ -23524,7 +23525,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/smithsonian/views/Browse/browse_results_images_html.php:78
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_images_html.php:92
 msgid "Add to lightbox"
-msgstr ""
+msgstr "Ajouter à votre sélection"
 
 #: c:\www\htdocs\pawtucket_cs/themes/bok/views/Browse/browse_results_list_html.php:107
 #: c:\www\htdocs\pawtucket_cs/themes/bok/views/Browse/browse_results_list_html.php:121
@@ -23721,19 +23722,19 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Details/form_share_html.php:23
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Details/form_share_html.php:23
 msgid "Share this item"
-msgstr ""
+msgstr "Partager cette fiche"
 
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/views/Details/form_share_html.php:34
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Details/form_share_html.php:34
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Details/form_share_html.php:34
 msgid "To e-mail address"
-msgstr ""
+msgstr "Adresse mail du destinataire"
 
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/views/Details/form_share_html.php:34
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Details/form_share_html.php:34
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Details/form_share_html.php:34
 msgid "Enter multiple addresses separated by commas"
-msgstr ""
+msgstr "Entrez plusieurs adresses mail séparées par des virgules"
 
 #: c:\www\htdocs\pawtucket_cs/themes/chhe/views/Details/form_share_html.php:38
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Details/form_share_html.php:38
@@ -24169,7 +24170,7 @@ msgstr "fermer"
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:102
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_html.php:80
 msgid "desc"
-msgstr ""
+msgstr "desc"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:84
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:77
@@ -24180,21 +24181,21 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:102
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Browse/browse_results_html.php:80
 msgid "asc"
-msgstr ""
+msgstr "asc"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:98
 #: c:\www\htdocs\pawtucket_cs/themes/glenstone/views/Browse/browse_results_html.php:100
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Browse/browse_results_html.php:98
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:116
 msgid "Add all results to %1"
-msgstr ""
+msgstr "Ajouter tous les résultats à %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:99
 #: c:\www\htdocs\pawtucket_cs/themes/glenstone/views/Browse/browse_results_html.php:101
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Browse/browse_results_html.php:99
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_html.php:117
 msgid "Select results to add to %1"
-msgstr ""
+msgstr "Sélectionner les résultats à ajouter à %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/browse_results_html.php:132
 #: c:\www\htdocs\pawtucket_cs/themes/eflux/views/Browse/browse_results_html.php:127
@@ -24217,7 +24218,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Browse/browse_results_list_html.php:96
 #: c:\www\htdocs\pawtucket_cs/themes/nysoc/views/Browse/browse_results_images_html.php:97
 msgid "Add to %1"
-msgstr ""
+msgstr "Ajouter à %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Browse/list_facet_html.php:61
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Browse/list_facet_html.php:61
@@ -24240,7 +24241,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Contribute/terms_and_conditions_check_html.php:38
 #: c:\www\htdocs\pawtucket_cs/themes/mattress/views/Contribute/terms_and_conditions_check_html.php:38
 msgid "Terms and conditions"
-msgstr ""
+msgstr "Termes et conditions"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Contribute/terms_and_conditions_check_html.php:42
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Contribute/terms_and_conditions_check_html.php:42
@@ -24251,7 +24252,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Gallery/detail_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/Gallery/detail_html.php:43
 msgid "more"
-msgstr ""
+msgstr "plus"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Gallery/index_html.php:37
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Gallery/set_info_html.php:12
@@ -24272,21 +24273,21 @@ msgstr "objets"
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Gallery/set_info_html.php:15
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Gallery/set_info_html.php:15
 msgid "view %1"
-msgstr ""
+msgstr "voir %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Gallery/set_item_info_html.php:13
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Gallery/set_item_info_html.php:13
 #: c:\www\htdocs\pawtucket_cs/themes/newschool/views/Gallery/set_item_info_html.php:11
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/Gallery/set_item_info_html.php:287
 msgid "VIEW RECORD"
-msgstr ""
+msgstr "VOIR L' ENREGISTREMENT"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_login_html.php:18
 #: c:\www\htdocs\pawtucket_cs/themes/glenstone/views/LoginReg/form_login_html.php:18
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_login_html.php:18
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/LoginReg/form_login_html.php:22
 msgid "Username"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_login_html.php:41
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_login_html.php:50
@@ -24296,7 +24297,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/LoginReg/form_login_html.php:43
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/LoginReg/form_login_html.php:47
 msgid "Click here to register"
-msgstr ""
+msgstr "Cliquez ici pour vous inscrire"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_login_html.php:46
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_login_html.php:52
@@ -24307,34 +24308,34 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/LoginReg/form_login_html.php:44
 #: c:\www\htdocs\pawtucket_cs/themes/steelcase/views/LoginReg/form_login_html.php:48
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Mot de passe oublié?"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_profile_html.php:15
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_profile_html.php:15
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_profile_html.php:44
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_profile_html.php:44
 msgid "Only enter if you would like to change your current password"
-msgstr ""
+msgstr "Entrez-le uniquement si vous voulez changer votre mot de passe actuel"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_profile_html.php:47
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_register_html.php:66
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_profile_html.php:47
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_register_html.php:66
 msgid "Re-Type password"
-msgstr ""
+msgstr "Re-tapez votre mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:8
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:8
 msgid "Reset Your Password"
-msgstr ""
+msgstr "Réinitialisez votre mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:17
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:17
 msgid "Instructions have been sent to the e-mail address you provided."
-msgstr ""
+msgstr "Des instructions ont été envoyées à l'adresse email que vous avez indiqué."
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:20
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:20
@@ -24344,7 +24345,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:29
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:29
 msgid "Your password has been reset!"
-msgstr ""
+msgstr "Votre mot de passe a été réinitialisé!"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:31
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:31
@@ -24352,30 +24353,33 @@ msgid "You may now"
 msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:31
+#: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_login_html.php:31
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:31
 msgid "login"
-msgstr ""
+msgstr "Se connecter"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:40
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:40
 msgid ""
 "Please confirm you have copied the provided link properly.  If you continue to have difficulty, contact us for assistance,"
 msgstr ""
+"S'il vous plait, confirmez que vous avez bien copié le lien. Si vos difficultés persévèrent, veuillez nous contacter pour "
+"plus d'assistance."
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:48
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:48
 msgid "Please enter your new password."
-msgstr ""
+msgstr "Veuillez entrer votre nouveau mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:53
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:53
 msgid "New password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:59
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:59
 msgid "Confirm new password"
-msgstr ""
+msgstr "Confirmez votre nouveau mot de passe"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/LoginReg/form_reset_html.php:78
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:78
@@ -24383,6 +24387,8 @@ msgid ""
 "To reset your password enter the e-mail address you used to register below. A message will be sent to the address with "
 "instructions on how to reset your password."
 msgstr ""
+"Pour réinitialiser votre mot de passe, veuillez entrer ci-dessous l'adresse email utilisée pour vous inscrire. Un message "
+"contenant des instructions sur la procédure à suivre pour obtenir un nouveau mot de passe va vous être envoyé."
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_collections_search_subview_html.php:55
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_entities_search_subview_html.php:49
@@ -24410,7 +24416,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/Search/ca_objects_search_subview_html.php:43
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/Search/ca_occurrences_search_subview_html.php:43
 msgid "Full results"
-msgstr ""
+msgstr "Tous les résutats"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_collections_search_subview_html.php:59
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/ca_entities_search_subview_html.php:53
@@ -24430,7 +24436,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/Search/ca_entities_search_subview_html.php:44
 #: c:\www\htdocs\pawtucket_cs/themes/swiss/views/Search/ca_occurrences_search_subview_html.php:44
 msgid "sort by:"
-msgstr ""
+msgstr "Trier par:"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/multisearch_results_html.php:19
 #: c:\www\htdocs\pawtucket_cs/themes/eflux/views/Search/multisearch_results_html.php:7
@@ -24441,7 +24447,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/smithsonian/views/Search/multisearch_results_html.php:19
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Search/multisearch_results_html.php:19
 msgid "Search results for %1"
-msgstr ""
+msgstr "Résultats de recherche pour %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Search/multisearch_results_html.php:33
 #: c:\www\htdocs\pawtucket_cs/themes/eflux/views/Search/multisearch_results_html.php:21
@@ -24452,7 +24458,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/smithsonian/views/Search/multisearch_results_html.php:33
 #: c:\www\htdocs\pawtucket_cs/themes/sva/views/Search/multisearch_results_html.php:33
 msgid "Your search for %1 returned no results"
-msgstr ""
+msgstr "Votre recherche: %1 n'a retourné aucun résultat"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/ajax_comments.php:65
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_detail_html.php:244
@@ -24465,7 +24471,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_add_set_item_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_add_set_item_html.php:51
 msgid "Select a %1"
-msgstr ""
+msgstr "Sélectionnez un %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_add_set_item_html.php:58
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_add_set_item_html.php:58
@@ -24483,7 +24489,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:36
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_detail_html.php:125
 msgid "Share %1"
-msgstr ""
+msgstr "Partager %1"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/form_share_set_html.php:51
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/form_share_set_html.php:51
@@ -24666,7 +24672,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:127
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:127
 msgid "shared %1 with %2"
-msgstr ""
+msgstr "%1 partagé avec %2"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:131
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:131
@@ -24676,7 +24682,7 @@ msgstr ""
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:135
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:135
 msgid "unshared %1 with %2"
-msgstr ""
+msgstr "%1 n'est plus partagé avec %2"
 
 #: c:\www\htdocs\pawtucket_cs/themes/default/views/Sets/set_list_html.php:143
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Sets/set_list_html.php:143
@@ -24917,6 +24923,14 @@ msgstr "Question de sécurité"
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/Contact/form_html.php:54
 msgid "Send"
 msgstr "Envoyer"
+
+#: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_profile_html.php:52
+msgid "Save"
+msgstr "Enregistrer"
+
+#: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/LoginReg/form_reset_html.php:88
+msgid "send"
+msgstr ""
 
 #: c:\www\htdocs\pawtucket_cs/themes/lescollections/views/bundles/media_attribute_viewer_html.php:79
 msgid "Thumbnails"
@@ -28044,9 +28058,6 @@ msgstr "Personnes & Organisations"
 
 #~ msgid "Added missing \"deleted\" field to table ca_list_items"
 #~ msgstr "Champ \"deleted\" manquant ajouté à la table ca_list_items"
-
-#~ msgid "Save"
-#~ msgstr "Enregistrer"
 
 #~ msgid "Group members"
 #~ msgstr "Membres du groupe"
