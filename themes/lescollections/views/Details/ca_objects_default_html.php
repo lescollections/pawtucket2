@@ -51,9 +51,9 @@
 				{{{<ifdef code="ca_objects.containerID"><H6><?php print _t("Box/series"); ?></H6>^ca_objects.containerID<br/></ifdef>}}}
 
                 {{{<ifdef code="ca_objects.work_dimensions"><H6><?php print _t("Dimensions"); ?></H6>
-					<ifdef code="work_dimensions.dimensions_width">L </ifdef> ^ca_objects.work_dimensions.dimensions_width <ifdef code="work_dimensions.dimensions_width">x</ifdef>
-					<ifdef code="work_dimensions.dimensions_height">H </ifdef> ^ca_objects.work_dimensions.dimensions_height
-					<ifdef code="work_dimensions.dimensions_depth">x P </ifdef> ^ca_objects.work_dimensions.dimensions_depth
+					<ifdef code="ca_objects.work_dimensions.dimensions_width">L </ifdef> ^ca_objects.work_dimensions.dimensions_width <ifdef code="ca_objects.work_dimensions.dimensions_width">x</ifdef>
+					<ifdef code="ca_objects.work_dimensions.dimensions_height">H </ifdef> ^ca_objects.work_dimensions.dimensions_height
+					<ifdef code="ca_objects.work_dimensions.dimensions_depth">x P </ifdef> ^ca_objects.work_dimensions.dimensions_depth
 					 ^ca_objects.work_dimensions.dimensions_type
 				<br/></ifdef>}}}
 
