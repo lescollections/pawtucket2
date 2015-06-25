@@ -18,8 +18,8 @@
 
 				<?php print caObjectRepresentationThumbnails($this->request, $this->getVar("representation_id"), $t_object, array("returnAs" => "bsCols", "linkTo" => "carousel", "bsColClasses" => "smallpadding col-sm-3 col-md-3 col-xs-4")); ?>
 
-				{{{<ifcount code="ca_objects" min="1" max="1"><H6><?php print _t("Related object"); ?></H6><unit relativeTo="ca_objects" delimiter=" "><l>^ca_object_representations.media.small</l><br/><l>^ca_objects.preferred_labels.name</l><br/></unit></ifcount>}}}
-				{{{<ifcount code="ca_objects" min="2"><?php print _t("Related objects"); ?><unit relativeTo="ca_objects" delimiter=" "><l>^ca_object_representations.media.small</l><br/><l>^ca_objects.preferred_labels.name</l><br/></unit></ifcount>}}}
+				{{{<ifcount code="ca_objects" min="1" max="1"><H6><?php print _t("Related object"); ?></H6><unit relativeTo="ca_objects.related" delimiter=" "><l>^ca_object_representations.media.small</l><br/><l>^ca_objects.preferred_labels.name</l><br/></unit></ifcount>}}}
+				{{{<ifcount code="ca_objects" min="2"><?php print _t("Related objects"); ?><unit relativeTo="ca_objects.related" delimiter=" "><l>^ca_object_representations.media.small</l><br/><l>^ca_objects.preferred_labels.name</l><br/></unit></ifcount>}}}
 
 				<div id="detailTools">
 					<div class="detailTool"><a href='#' onclick='jQuery("#detailComments").slideToggle(); return false;'><span class="glyphicon glyphicon-comment"></span>Comments (<?php print sizeof($va_comments); ?>)</a></div><!-- end detailTool -->
