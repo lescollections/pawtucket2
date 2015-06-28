@@ -17,11 +17,9 @@
 				{{{representationViewer}}}
 
 				<?php print caObjectRepresentationThumbnails($this->request, $this->getVar("representation_id"), $t_object, array("returnAs" => "bsCols", "linkTo" => "carousel", "bsColClasses" => "smallpadding col-sm-3 col-md-3 col-xs-4")); ?>
-				<div id="detailTools">
-					<div class="detailTool"><a href='#' onclick='jQuery("#detailComments").slideToggle(); return false;'><span class="glyphicon glyphicon-comment"></span><?php print _t("Comments"); ?>(<?php print sizeof($va_comments); ?>)</a></div><!-- end detailTool -->
-					<div id='detailComments'>{{{itemComments}}}</div><!-- end itemComments -->
-					<div class="detailTool"><span class="glyphicon glyphicon-share-alt"></span>{{{shareLink}}}</div><!-- end detailTool -->
-				</div><!-- end detailTools -->
+
+                {{{map}}}
+
 			</div><!-- end col -->
 
 			<div class='col-sm-6 col-md-6 col-lg-5'>
@@ -75,8 +73,13 @@
                 {{{<ifcount code="ca_entities" min="2"><H6><?php print _t("Related people"); ?></H6></ifcount>}}}
                 {{{<unit relativeTo="ca_entities" delimiter="<br/>"><l>^ca_entities.preferred_labels.displayname</l></unit>}}}
 
-                {{{map}}}
-			</div><!-- end col -->
+                <div id="detailTools">
+                    <div class="detailTool"><a href='#' onclick='jQuery("#detailComments").slideToggle(); return false;'><span class="glyphicon glyphicon-comment"></span><?php print _t("Comments"); ?>(<?php print sizeof($va_comments); ?>)</a></div><!-- end detailTool -->
+                    <div id='detailComments'>{{{itemComments}}}</div><!-- end itemComments -->
+                    <div class="detailTool"><span class="glyphicon glyphicon-share-alt"></span>{{{shareLink}}}</div><!-- end detailTool -->
+                </div><!-- end detailTools -->
+
+            </div><!-- end col -->
 		</div><!-- end row --></div><!-- end container -->
 	</div><!-- end col -->
 	<div class='navLeftRight col-xs-1 col-sm-1 col-md-1 col-lg-1'>
