@@ -50,40 +50,65 @@
 	$vs_extended_info_template = caGetOption('extendedInformationTemplate', $va_options, null);
 
 	$vb_ajax			= (bool)$this->request->isAjax();
+
+    $va_view_info = $va_views[$vs_current_view];
 	
 ?>
-	<div id="bTimelineContainer"><div id="timeline-embed">
+<?php
+//
+// map
+//
+if (!is_array($va_map_attributes = caGetOption('map_attributes', $va_options, array())) || !sizeof($va_map_attributes)) {
+if ($vs_map_attribute = caGetOption('map_attribute', $va_options, false)) { $va_map_attributes = array($vs_map_attribute); }
+}
 
-	</div></div>
-	
-	<script type="text/javascript">
-    	var tl;
-		$(document).ready(function() {
-			tl = new VMM.Timeline("#timeline-embed");
-			VMM.debug = false;
-			tl.init({
-				type:       'timeline',
-				width:      '100%',
-				height:     $('#timeline-embed').height(),
-				source:     '<?php print caNavUrl($this->request, '*', '*', '*', array('view' => 'timelineData', 'key' => $vs_browse_key)); ?>',
-				embed_id:   'timeline-embed',
-				debug: false
-			});
-			
-			VMM.bindEvent(jQuery(".vco-slider"), loadTL, "UPDATE");
-			VMM.bindEvent(jQuery(".vco-navigation"), loadTL, "UPDATE");
-		});
-		
-		var c = 36;
-		var s = c;
-		function loadTL(e) {
-			console.log("slide!", e, tl.getCurrentNumber());
-			
-			if (tl.getCurrentNumber() >= (c-2)) {
-				tl.reload(url ='<?php print caNavUrl($this->request, '*', '*', '*', array('view' => 'timelineData', 'key' => $vs_browse_key, 's' => '')); ?>' + s);
-				console.log("reload", url);
-				s+= c;
-			}
-		}
-		
-	</script>
+//if(is_array($va_map_attributes) && sizeof($va_map_attributes)) {
+$o_map = new GeographicMap("100%", 500, 'map');
+
+$qr_res->seek($vn_start);
+
+$vn_c=0;
+$vn_map_counting=0;
+/*
+ * Demo point
+ *
+ $point = new GeographicMapItem(
+    array(
+        "latitude" => "48.804722",
+        "longitude" => "2.121782",
+        "label" => "palais de versailles",
+        "content" => "description",
+        "color" => "#123456"
+    )
+);
+$o_map->addMapItem($point);
+*/
+
+while($qr_res->nextHit()) {
+    $data = $qr_res->get($va_view_info['data'], array('coordinates' => true, 'returnAsArray' => true));
+
+
+    if ($data) {
+        $data = reset($data);
+        $o_map_item = new GeographicMapItem(
+          array(
+              "latitude" => $data["georeference"]["latitude"],
+              "longitude" => $data["georeference"]["longitude"],
+              "label" => "label-".$vn_c,
+              "content" => $qr_res->getWithTemplate(caGetOption('title_template', $va_view_info['display'], null)),
+              "color" => $va_view_info["display"]["color"]
+          )
+        );
+        $o_map->addMapItem($o_map_item);
+        $vn_map_counting++;
+    }
+
+    $vn_c++;
+    if ($vn_c > 2000) { break; }
+}
+
+$o_map->fitExtentsToMapItems();
+?>
+<h3><?php print $vn_map_counting; ?> <small>objets ont des coordonnées géographiques</small></h3>
+<?php
+    print $o_map->render('HTML');
