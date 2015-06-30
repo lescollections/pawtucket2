@@ -11,8 +11,9 @@
 		print "<H4>".$this->getVar("label")."</H4>";
 		print "<p><small class='uppercase'>".$this->getVar("num_items")." ".(($this->getVar("num_items") == 1) ? _t("item") : _t("items"))."</small></p>";
 		print "<p>".$this->getVar("description")."</p>";
-		
-		print "<br/>".caNavLink($this->request, "<span class='glyphicon glyphicon-th-large'></span>", "", "", "Storymap", $this->getVar("set_id"))."&nbsp;&nbsp;&nbsp;".caNavLink($this->request, _t("Afficher"), "", "", "Storymap", $this->getVar("set_id"));
+
+        print "<br/>".caNavLink($this->request, "<span class='glyphicon glyphicon-th-large'></span>", "", "", "Gallery", $this->getVar("set_id"))."&nbsp;&nbsp;&nbsp;".caNavLink($this->request, _t("Affichage classique"), "", "", "Gallery", $this->getVar("set_id"));
+        print "<span style='margin-left:30px;'></span>".caNavLink($this->request, "<span class='glyphicon glyphicon-map-marker'></span>", "", "", "Gallery", $this->getVar("set_id"))."&nbsp;&nbsp;&nbsp;".caNavLink($this->request, _t("Visite sur une carte"), "", "", "Storymap", $this->getVar("set_id"));
 ?>
 	</div><!-- end col -->
 </div><!-- end col --></div><!-- end row -->
