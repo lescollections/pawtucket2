@@ -5,7 +5,8 @@
 	$ps_description = $this->getVar("description");
 	$pn_set_item_id = $this->getVar("set_item_id");
 ?>
-<H1><?php print $this->getVar("section_name"); ?>: <?php print $this->getVar("label")."</H1>"; ?>
+<H1><?php print $this->getVar("section_name"); ?> : <?php print $this->getVar("label"); ?></H1>
+<?php print caNavLink($this->request, "<span class='glyphicon glyphicon-map-marker'></span>", "", "", "Gallery", $this->getVar("set_id"))."&nbsp;&nbsp;&nbsp;".caNavLink($this->request, _t("VISITE SUR UNE CARTE"), "", "", "Storymap", $this->getVar("set_id")); ?>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8"><div id="galleryDetailImageArea">
