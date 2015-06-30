@@ -219,7 +219,16 @@
                 $t_object = new ca_objects($vt_set_item["row_id"]);
 
                 if($t_object->getWithTemplate($this->config->get(object_georeference))) {
-                    $coordinates = explode(",", str_replace(array("[","]"), "",  $t_object->getWithTemplate($this->config->get(object_georeference))));
+                    // removing brackets from coordinates
+                    $coordinates_no_brackets = str_replace(array("[","]"), "",  $t_object->getWithTemplate($this->config->get(object_georeference)));
+                    // cleaning non point coordinates, containing :
+                    if(strpos($coordinates_no_brackets,":")) {
+                        $coordinates_no_brackets = substr($coordinates_no_brackets, 0, strpos($coordinates_no_brackets,":"));
+
+                    }
+
+
+                    $coordinates = explode(",", $coordinates_no_brackets);
                     $vn_object_id = $t_object->get("ca_objects.object_id");
                     $va_objects[$vn_object_id] = array(
                         "idno" => $t_object->get("ca_objects.idno"),
