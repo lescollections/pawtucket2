@@ -2659,3 +2659,11 @@ div.advancedSearchField {
 	padding-left: 0;
 	padding-right: 0;
 }
+
+.vco-storymap p a, .vco-storymap p a:hover, .vco-storymap p a:focus {
+    color:white !important;
+    background: #c34528 !important;
+    border-radius:4px !important;
+    padding:1px 4px !important;
+    text-shadow: none !important;
+}
