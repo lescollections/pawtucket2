@@ -46,7 +46,7 @@ foreach($set_items as $set_item) :
         "date": "<?php print $va_object["date"]; ?>",
         "text": {
             "headline": "<?php print $set_item["name"]; ?>",
-            "text": "<?php print $va_object["description"]."<a href='/Detail/objects/".$set_item["row_id"]."'>Afficher</a>"; ?>"
+            "text": "<?php print $va_object["description"]."<a href='".__CA_URL_ROOT__."/index.php/Detail/objects/".$set_item["row_id"]."'>Afficher</a>"; ?>"
         },
         "location": {
             "name": "<?php print $va_object["placename"]; ?>",
