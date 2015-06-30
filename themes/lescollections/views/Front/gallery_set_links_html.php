@@ -29,8 +29,16 @@
  *
  * ----------------------------------------------------------------------
  */
+
+$gallery_html = caGetGallerySetsAsList($this->request, "nav nav-pills nav-stacked");
+if ($gallery_html) :
 ?>
-			<h2><?php print _t("Parcourir les galeries:"); ?></h2>
-<?php
-			print caGetGallerySetsAsList($this->request, "nav nav-pills nav-stacked");
-?>
+			<h2><?php print _t("Parcourir les galeries :"); ?></h2>
+            <?php print $gallery_html; ?>
+<?php endif; ?>
+            <h2><?php print _t("Parcourir la base :"); ?></h2>
+            <ul class="nav nav-pills nav-stacked"; ?>
+            <li><?php print caNavLink($this->request, "Toute la collection", "", "", "Browse", "objects"); ?></li>
+            <li><?php print caNavLink($this->request, "Chronologie" , "", "", "Browse","objects/view/timeline"); ?></li>
+            <li><?php print caNavLink($this->request, "Cartographie" , "", "", "Browse","objects/view/map"); ?></li>
+            </ul>
