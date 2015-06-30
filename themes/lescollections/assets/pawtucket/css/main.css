@@ -2675,3 +2675,10 @@ div.advancedSearchField {
 h2.vco-headline {
     text-transform: uppercase;
 }
+
+.vco-map .leaflet-container .leaflet-control-attribution .vco-knightlab-brand, .vco-map .leaflet-container .leaflet-control-attribution a.vco-knightlab-brand {
+    font-size:inherit !important;
+}
+.vco-map .leaflet-container .leaflet-control-attribution .vco-knightlab-brand span, .vco-map .leaflet-container .leaflet-control-attribution a.vco-knightlab-brand span {
+    color:black !important;
+}
