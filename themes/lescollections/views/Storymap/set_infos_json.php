@@ -22,6 +22,7 @@ $set_representation_url = $set_first_item["representation_url"];
 ?>
 {
 "storymap": {
+    "language": "fr",
     "slides": [
         {
             "type": "overview",
