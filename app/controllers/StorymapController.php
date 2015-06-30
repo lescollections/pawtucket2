@@ -109,10 +109,10 @@
  			}
  		}
  		# -------------------------------------------------------
- 		
+
  		/**
  		 *
- 		 */ 
+ 		 */
  		public function getSetInfo() {
  			$pn_set_id = $this->request->getParameter('set_id', pInteger);
  			$t_set = new ca_sets($pn_set_id);
@@ -123,7 +123,7 @@
  			$this->view->setVar("description", $t_set->get($this->config->get('gallery_set_description_element_code')));
  			$this->view->setVar("num_items", $t_set->getItemCount(array("checkAccess" => $this->opa_access_values)));
  			$this->view->setVar("set_item", array_shift(array_shift($t_set->getFirstItemsFromSets(array($pn_set_id), array("version" => "large", "checkAccess" => $this->opa_access_values)))));
- 			
+
  			$this->render("Storymap/set_info_html.php");
  		}
  		# -------------------------------------------------------
@@ -133,7 +133,7 @@
  			$t_set->load($pn_set_id);
  			$va_set_items = caExtractValuesByUserLocale($t_set->getItems(array("thumbnailVersions" => array("icon", "iconlarge"), "checkAccess" => $this->opa_access_values)));
  			$this->view->setVar("set_id", $pn_set_id);
- 			
+
  			$pn_item_id = $this->request->getParameter('item_id', pInteger);
  			$t_rep = new ca_object_representations($va_set_items[$pn_item_id]["representation_id"]);
  			$va_rep_info = $t_rep->getMediaInfo("media", "mediumlarge");
@@ -166,18 +166,18 @@
  			$this->view->setVar("item_id", $pn_item_id);
  			$this->view->setVar("set_num_items", sizeof($va_set_item_ids));
  			$this->view->setVar("set_item_num", (array_search($pn_item_id, $va_set_item_ids) + 1));
- 			
+
  			$this->view->setVar("object", $t_object);
  			$this->view->setVar("object_id", $t_set_item->get("row_id"));
  			$this->view->setVar("label", $t_object->getLabelForDisplay());
- 			
+
  			//
  			// Tag substitution
  			//
  			// Views can contain tags in the form {{{tagname}}}. Some tags, such as "label" are defined by
  			// this controller. More usefully, you can pull data from the item being detailed by using a valid "get" expression
  			// as a tag (Eg. {{{ca_objects.idno}}}. Even more usefully for some, you can also use a valid bundle display template
- 			// (see http://docs.collectiveaccess.org/wiki/Bundle_Display_Templates) as a tag. The template will be evaluated in the 
+ 			// (see http://docs.collectiveaccess.org/wiki/Bundle_Display_Templates) as a tag. The template will be evaluated in the
  			// context of the item being detailed.
  			//
  			$va_defined_vars = array_keys($this->view->getAllVars());		// get list defined vars (we don't want to copy over them)
@@ -192,7 +192,7 @@
  					$this->view->setVar($vs_tag, "?{$vs_tag}");
  				}
  			}
- 			
+
  			$this->render("Storymap/set_item_info_html.php");
  		}
  		# -------------------------------------------------------
@@ -221,10 +221,9 @@
                 if($t_object->getWithTemplate($this->config->get(object_georeference))) {
                     // removing brackets from coordinates
                     $coordinates_no_brackets = str_replace(array("[","]"), "",  $t_object->getWithTemplate($this->config->get(object_georeference)));
-                    // cleaning non point coordinates, containing :
+                    // cleaning weird coordinates, containing :
                     if(strpos($coordinates_no_brackets,":")) {
                         $coordinates_no_brackets = substr($coordinates_no_brackets, 0, strpos($coordinates_no_brackets,":"));
-
                     }
 
 
@@ -250,6 +249,7 @@
                 if($vn_c > 50) break;
                 //die();
             }
+
             $this->view->setVar("set_objects", $va_objects);
             $this->render("Storymap/set_infos_json.php");
 
