@@ -26,6 +26,10 @@
  * ----------------------------------------------------------------------
  */
 ?>
+        <p class="pull-right">
+            <?php print __LESCOLLECTIONS_COPYRIGHT_TEXT__; ?>
+        </p>
+
 		<div style="clear:both; height:1px;"><!-- empty --></div>
 		<div id="footer">
 			<ul class="list-inline pull-right social">

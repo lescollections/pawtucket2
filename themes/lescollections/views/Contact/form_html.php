@@ -13,10 +13,6 @@
                     <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
             </H1>
         </div><!--end col-sm-8-->
-        <div class="col-sm-4">
-            <p class="front_page">
-            </p>
-        </div> <!--end col-sm-4-->
     </div><!-- end row -->
 </div> <!--end container-->
 

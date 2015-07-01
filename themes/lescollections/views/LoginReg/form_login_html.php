@@ -14,8 +14,8 @@ print $this->render("Front/featured_set_slideshow_html.php");
                 <div class="row">
                     <div class="col-sm-8">
                         <H1>
-                            <?php print __LESCOLLECTIONS_NAME__; ?><br/><small>
-                                <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
+                            <?php print __LESCOLLECTIONS_NAME__; ?><br/>
+                            <small><?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
                         </H1>
                         <p class="login_page">
                             <?php print __LESCOLLECTIONS_INTRO__; ?>
