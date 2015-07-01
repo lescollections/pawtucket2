@@ -55,7 +55,7 @@ class lesCollectionsEasyCustomPlugin extends BaseApplicationPlugin {
         define("__LESCOLLECTIONS_INTRO__",$va_infos->collectionintro);
         define("__LESCOLLECTIONS_LOGIN_REQUIS__",$va_infos->loginrequis);
         define("__LESCOLLECTIONS_CONTACT_INFORMATIONS__",$va_infos->contactinformations);
-        define("__LESCOLLECTIONS_COPYRIGHT_TEXT__",$va_infos->contactinformations);
+        define("__LESCOLLECTIONS_COPYRIGHT_TEXT__",$va_infos->copyright);
         // Simple constant definition function, so we return true in all cases
         return true;
     }
