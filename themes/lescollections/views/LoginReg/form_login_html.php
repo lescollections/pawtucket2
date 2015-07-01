@@ -10,7 +10,26 @@ print $this->render("Front/featured_set_slideshow_html.php");
 <?php
 	}
 ?>
-			<H1><?php print _t("Login"); ?></H1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <H1>
+                            <?php print __LESCOLLECTIONS_NAME__; ?><br/><small>
+                                <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
+                        </H1>
+                        <p class="login_page">
+                            <?php print __LESCOLLECTIONS_LOGIN_REQUIS__; ?>
+                        </p>
+                    </div><!--end col-sm-8-->
+                    <div class="col-sm-4">
+                        <p class="front_page">
+                            <?php print __LESCOLLECTIONS_INTRO__; ?>
+                        </p>
+                    </div> <!--end col-sm-4-->
+                </div><!-- end row -->
+            </div> <!--end container-->
+
+            <H1><?php print _t("Login"); ?></H1>
 <?php
 	if($this->getVar("message")){
 		print "<div class='alert alert-danger'>".$this->getVar("message")."</div>";
@@ -58,25 +77,6 @@ print $this->render("Front/featured_set_slideshow_html.php");
 					</div>
 				</div><!-- end form-group -->
 			</form>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <H1>
-                            <?php print __LESCOLLECTIONS_NAME__; ?><br/><small>
-                            <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
-                        </H1>
-                        <p class="login_page">
-                            <?php print __LESCOLLECTIONS_LOGIN_REQUIS__; ?>
-                        </p>
-                    </div><!--end col-sm-8-->
-                    <div class="col-sm-4">
-                        <p class="front_page">
-                            <?php print __LESCOLLECTIONS_INTRO__; ?>
-                        </p>
-                    </div> <!--end col-sm-4-->
-                </div><!-- end row -->
-            </div> <!--end container-->
-
 <?php
 	if($this->request->isAjax()){
 ?>
