@@ -15,7 +15,6 @@
         </div><!--end col-sm-8-->
         <div class="col-sm-4">
             <p class="front_page">
-                <?php print __LESCOLLECTIONS_INTRO__; ?>
             </p>
         </div> <!--end col-sm-4-->
     </div><!-- end row -->
