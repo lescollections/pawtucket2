@@ -29,6 +29,9 @@ print $this->render("Front/featured_set_slideshow_html.php");
                 </div><!-- end row -->
             </div> <!--end container-->
 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
             <H1><?php print _t("Login"); ?></H1>
 <?php
 	if($this->getVar("message")){
@@ -77,6 +80,9 @@ print $this->render("Front/featured_set_slideshow_html.php");
 					</div>
 				</div><!-- end form-group -->
 			</form>
+            </div>
+        </div>
+    </div>
 <?php
 	if($this->request->isAjax()){
 ?>
