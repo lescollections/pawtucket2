@@ -26,7 +26,7 @@
  * ----------------------------------------------------------------------
  */
 ?>
-        <p class="pull-right">
+        <p class="pull-right copyright-mention">
             <?php print __LESCOLLECTIONS_COPYRIGHT_TEXT__; ?>
         </p>
 

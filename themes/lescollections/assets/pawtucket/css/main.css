@@ -2682,3 +2682,8 @@ h2.vco-headline {
 .vco-map .leaflet-container .leaflet-control-attribution .vco-knightlab-brand span, .vco-map .leaflet-container .leaflet-control-attribution a.vco-knightlab-brand span {
     color:black !important;
 }
+
+.copyright-mention {
+    margin-bottom:0px;
+    padding-right:20px;
+}
