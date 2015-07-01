@@ -2,7 +2,10 @@
 	$vn_label_col = 2;
 	if($this->request->isAjax()){
 		$vn_label_col = 4;
+
+print $this->render("Front/featured_set_slideshow_html.php");
 ?>
+
 		<div id="caFormOverlay"><div class="pull-right pointer" onclick="caMediaPanel.hidePanel(); return false;"><span class="glyphicon glyphicon-remove-circle"></span></div>
 <?php
 	}
