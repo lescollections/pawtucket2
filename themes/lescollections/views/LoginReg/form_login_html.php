@@ -18,12 +18,12 @@ print $this->render("Front/featured_set_slideshow_html.php");
                                 <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
                         </H1>
                         <p class="login_page">
-                            <?php print __LESCOLLECTIONS_LOGIN_REQUIS__; ?>
+                            <?php print __LESCOLLECTIONS_INTRO__; ?>
                         </p>
                     </div><!--end col-sm-8-->
                     <div class="col-sm-4">
                         <p class="front_page">
-                            <?php print __LESCOLLECTIONS_INTRO__; ?>
+                            <?php print __LESCOLLECTIONS_LOGIN_REQUIS__; ?>
                         </p>
                     </div> <!--end col-sm-4-->
                 </div><!-- end row -->
