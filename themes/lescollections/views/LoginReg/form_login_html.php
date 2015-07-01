@@ -58,6 +58,9 @@ print $this->render("Front/featured_set_slideshow_html.php");
 					</div>
 				</div><!-- end form-group -->
 			</form>
+            <p class="login_page">
+                <?php print __LESCOLLECTIONS_LOGIN_REQUIS__; ?>
+            </p>
 <?php
 	if($this->request->isAjax()){
 ?>

@@ -53,6 +53,7 @@ class lesCollectionsEasyCustomPlugin extends BaseApplicationPlugin {
         define("__LESCOLLECTIONS_NAME__",$va_infos->collectionname);
         define("__LESCOLLECTIONS_SUBNAME__",$va_infos->collectionsubname);
         define("__LESCOLLECTIONS_INTRO__",$va_infos->collectionintro);
+        define("__LESCOLLECTIONS_LOGIN_REQUIS__",$va_infos->loginrequis);
         // Simple constant definition function, so we return true in all cases
         return true;
     }
