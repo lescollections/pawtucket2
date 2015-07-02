@@ -10,7 +10,7 @@
         <div class="col-sm-8">
             <H1>
                 <?php print __LESCOLLECTIONS_NAME__; ?><br/><small>
-                    <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
+                <?php print __LESCOLLECTIONS_SUBNAME__; ?></small>
             </H1>
         </div><!--end col-sm-8-->
     </div><!-- end row -->
