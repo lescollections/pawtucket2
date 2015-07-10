@@ -50,9 +50,15 @@ class lesCollectionsEasyCustomPlugin extends BaseApplicationPlugin {
     private function _defineConstants() {
         $vs_json_infos = file_get_contents($this->opo_config->get("lesCollectionsJsonFile",pString));
         $va_infos = json_decode($vs_json_infos);
+        if($va_infos->menublog == "")$va_infos->menublog = "Blog";
+        if($va_infos->menucollections == "")$va_infos->menucollections = "Collections";
+        if($va_infos->menugalerie == "")$va_infos->menugalerie = "Galerie";
         define("__LESCOLLECTIONS_NAME__",$va_infos->collectionname);
         define("__LESCOLLECTIONS_SUBNAME__",$va_infos->collectionsubname);
         define("__LESCOLLECTIONS_INTRO__",$va_infos->collectionintro);
+        define("__LESCOLLECTIONS_MENUBLOG__",$va_infos->menublog);
+        define("__LESCOLLECTIONS_MENUCOLLECTIONS__",$va_infos->menucollections);
+        define("__LESCOLLECTIONS_MENUGALERIE__",$va_infos->menugalerie);
         // Simple constant definition function, so we return true in all cases
         return true;
     }
