@@ -108,15 +108,24 @@
 						<ul class="dropdown-menu">
 <?php
 							print $vs_user_links;
+if (!defined("__LESCOLLECTIONS_MENUBLOG__")) {
+    define("__LESCOLLECTIONS_MENUBLOG__","Blog");
+}
+if (!defined("__LESCOLLECTIONS_MENUCOLLECTIONS__")) {
+    define("__LESCOLLECTIONS_MENUCOLLECTIONS__","Collections");
+}
+if (!defined("__LESCOLLECTIONS_MENUGALERIE__")) {
+    define("__LESCOLLECTIONS_MENUGALERIE__","Galerie");
+}
 ?>
 						</ul>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav">
-	<li><a href="/blog"><?php print _t("Blog"); ?></a></li>
-                    <li><a href="/index.php/Browse/objects"><?php print _t("Collections"); ?></a></li>
+                	<li><a href="/blog"><?php print __LESCOLLECTIONS_MENUBLOG__; ?></a></li>
+                    <li><a href="/index.php/Browse/objects"><?php print __LESCOLLECTIONS_MENUCOLLECTIONS__; ?></a></li>
 
-					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Galerie"), "", "", "Gallery", "Index"); ?></li>
+					<li <?php print ($this->request->getController() == "Gallery") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, __LESCOLLECTIONS_MENUGALERIE__, "", "", "Gallery", "Index"); ?></li>
 
                     <li <?php print ($this->request->getController() == "Contact") ? 'class="active"' : ''; ?>><?php print caNavLink($this->request, _t("Contact"), "", "", "Contact", "Form"); ?></li>
 
