@@ -248,7 +248,9 @@ h1 i {
 .navbar .navbar-nav > .active > a {
     padding-left: 10px;
     padding-right: 10px;
-    color: #555555;
+    /*color: #555555; */
+    color: #00AA88;
+    background-color: #ffffff!important;
 }
 .nav > li > a, .nav > li > a:hover, .nav > li > a:focus {
 	font-family: Aleo;
@@ -265,6 +267,9 @@ h1 i {
 	margin:0;
 	padding-right:0;
 	padding-left: 0;
+}
+.nav > li > a:active {
+    color: #00AA88;
 }
 
 .dropdown-menu > li > a:hover,
