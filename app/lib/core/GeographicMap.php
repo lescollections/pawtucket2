@@ -93,8 +93,8 @@
 	/**
 	 *
 	 */
-	public function getExtent() {
-		return $this->opo_mapping_engine->getExtent();
+	public function getExtents() {
+		return $this->opo_mapping_engine->getExtents();
 	}
 	# -------------------------------------------------------------------
  	/**

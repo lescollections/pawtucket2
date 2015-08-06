@@ -62,23 +62,21 @@ H6, h6{
 	margin:10px 0px 0px 0px;
 }
 .caption {
-	font-size:11px; 
+	font-size:11px;
 	color:#999;
 	padding-top:5px;
-}	
+}
 label {
     display: inline-block;
     margin-bottom: 5px;
     font-size:11px;
     text-transform:uppercase;
-}	
+}
 .colBorderLeft{
 	border-left:1px solid #EDEDED;
-}	
+}
 .container {
 	max-width:5000px;
-    -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
-    box-shadow:0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .form-control{
 	font-size:12px;
@@ -108,8 +106,8 @@ label {
 }
 /*change the size of the gear next to page headers*/
 h1 i {
-	font-size:14px; 
-	font-weight:normal; 
+	font-size:14px;
+	font-weight:normal;
 	padding-bottom:10px;
 	color:#666;
 }
@@ -262,7 +260,7 @@ h1 i {
 }
 .navbar-nav > li > a {
     line-height: 27px;
-}   
+}
 .nav > li > a {
 	margin:0;
 	padding-right:0;
@@ -351,7 +349,7 @@ h1 i {
 	outline: 0;
 	-webkit-box-shadow: none;
           box-shadow: none;
-}          
+}
 .form-control:focus {
     border-color: #19BED1;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.075) inset, 0 0 0px rgba(102, 175, 233, 0.6);
@@ -461,7 +459,7 @@ h1 i {
 
 .filterMenuFacetList li.active a{
 	color:#000;
-}	
+}
 
 .filterMenuFacetList li a{
     color: #999;
@@ -470,7 +468,7 @@ h1 i {
     line-height: 25px;
     position: relative;
     text-decoration: none;
-}	
+}
 
 .filterMenuFacetList li a:hover{
 	text-decoration:underline;
@@ -550,16 +548,16 @@ div.browseFacetItem a{
 }
 .browseHeadernav{
 	font-size:11px;
-}	
+}
 .mainfacet	ul{
 	list-style-type:none;
 	margin:0;
 	padding:0;
 }
 .filterMenureults {
-	float:left; 
+	float:left;
 	padding-top:2px;
-	margin-right:-15px; 
+	margin-right:-15px;
 	margin-left:12px;
 	max-height:250px;
 	overflow:auto;
@@ -574,30 +572,30 @@ div.browseFacetItem a{
 	margin-top:-5px;
 	padding-top:2px;
 	margin-right:4px;
-}	
+}
 .mainfacet	li{
 	list-style-type:none;
 	margin:0 15px 0 15px;
 	padding:0 5px 0 5px;
 	float:left;
-}	
+}
 .mainfacet	li .active a{
 	color:#000;
 
-}	
+}
 .mainfacet	li a:hover{
 	color:#000;
 	text-decoration:none;
 	/*border-bottom:1px solid #000;*/
-}	
+}
 .filterMenuFacetList .btn-default {
-	background:transparent; 
+	background:transparent;
 	color:#ccc;
-}	
+}
 .filterMenuFacetList .btn-default a{
 	color:#666;
 	font-size:11px;
-}	
+}
 .browseHeadernav a{
 	color:#999;
 }
@@ -611,7 +609,7 @@ div.browseFacetItem a:hover {
 	color:#666;
 }
 a.browseRemoveFacet img {
-	margin-bottom: 3px;	
+	margin-bottom: 3px;
 }
 
 
@@ -619,20 +617,20 @@ a.browseRemoveFacet img {
     overflow: auto;
 }
 .browsedivider {
-	clear:both; 
-	margin-top:20px; 
-	padding-bottom:20px; 
+	clear:both;
+	margin-top:20px;
+	padding-bottom:20px;
 	border-top:1px solid #ccc;
-}	
+}
 
 
 /*!
  * Yamm!3
  * Yet another megamenu for Bootstrap 3
- * 
+ *
  * http://geedmo.github.com/yamm3
  */
- 
+
  .grid-demo [class*="col-"] {
     background-color: #E5E1EA;
     border: 1px solid #D1D1D1;
@@ -843,7 +841,7 @@ a.browseRemoveFacet img {
 	background-color:#FFFFFF;
 	position:relative;
 	line-height:1.2em;
-	font-size:11px;	
+	font-size:11px;
 }
 .lbItemContainerList .lbItem{
 	margin-bottom:15px;
@@ -1042,7 +1040,7 @@ a.browseRemoveFacet img {
 .lbItemContainer .lbSetItemComment{
 	padding-top:25px;
 }
-	
+
 .lbItemContainer .lbSetItemComment .closecomment {
 	margin-top:-15px;
 }
@@ -1077,7 +1075,7 @@ a.browseRemoveFacet img {
 }
 .lbSetContent .caption{
 	font-size:10px;
-	text-transform:uppercase; 
+	text-transform:uppercase;
 	color:#ccc;
 	padding-top:0px;
 }
@@ -1110,7 +1108,7 @@ a.browseRemoveFacet img {
 	font-weight:bold;
 	padding-top:10px;
 	margin-top:10px;
-	border-top:1px solid #e3e3e3;	
+	border-top:1px solid #e3e3e3;
 }
 .lbSetCommentHeader a{
 	color:#858585;
@@ -1124,18 +1122,18 @@ a.browseRemoveFacet img {
 	padding-top:5px;
 }
 .activitystream {
-	height:700px; 
+	height:700px;
 	overflow-y:hidden;
 	line-height:1.1em;
-}	
+}
 @media (min-width: 768px) {
 	.activitystream:hover{
-		overflow-y:auto; 
-	}	
-}	
+		overflow-y:auto;
+	}
+}
 #lbTimelineContainer{
 	height:500px;
-}	
+}
 /* --------------------------------- */
 /* front page */
 /* --------------------------------- */
@@ -1249,11 +1247,11 @@ a.browseRemoveFacet img {
 	z-index:100;
 	font-weight:bold;
 	opacity:0;
-	-webkit-transition: all 250ms ease-out;  
-        -moz-transition: all 250ms ease-out;  
-        -o-transition: all 250ms ease-out;  
-        -ms-transition: all 250ms ease-out;  
-        transition: all 250ms ease-out;  
+	-webkit-transition: all 250ms ease-out;
+        -moz-transition: all 250ms ease-out;
+        -o-transition: all 250ms ease-out;
+        -ms-transition: all 250ms ease-out;
+        transition: all 250ms ease-out;
 
 }
 .frontSlide:hover .frontSlideCaption{
@@ -1292,7 +1290,7 @@ a.browseRemoveFacet img {
 	color:#737373;
 	text-decoration:underline;
 	}
-	
+
 .detail H4 {
 	padding:0px;
 	margin:0px;
@@ -1372,7 +1370,7 @@ a.browseRemoveFacet img {
 
 #detailRepresentationThumbnails{
 	padding-top:0px;
-}	
+}
 
 .detail .repViewerCont {
 	width:100%;
@@ -1439,7 +1437,7 @@ a.browseRemoveFacet img {
     padding: 5px;
     margin-right:5px;
     text-transform: uppercase;
-    border-radius:3px;    
+    border-radius:3px;
 }
 .detail .detailTool span{
 	color:#929292;
@@ -1578,7 +1576,7 @@ a.readmore-js-toggle{
 	text-transform:uppercase;
 	font-size:12px;
 	font-weight:normal;
-}	
+}
 .results a .glyphicon, .results a .fa {
 	color:#ababab;
 }
@@ -1650,7 +1648,7 @@ a.readmore-js-toggle{
     padding: 10px;
 }
 .bSetsSelectMultiple{
-	display:none;	
+	display:none;
 }
 .bResultItem .bSetsSelectMultiple, .bResultListItem .bSetsSelectMultiple{
 	position:absolute;
@@ -1852,7 +1850,7 @@ a.readmore-js-toggle{
 	min-height:10px;
 	overflow:hidden;
 	margin:0 5px 0 0; /*had commented this out*/
-	float:left; 
+	float:left;
 }
 .bResultListItemImg .bResultItemImgPlaceholder{
 	padding:20px; /*had commented this out*/
@@ -1898,7 +1896,7 @@ a.readmore-js-toggle{
 	margin-left:5px;
 	margin-right:5px;
 	}
-.browse .btn a, .browse .btn .glyphicon, .sets .btn a, .sets .btn .glyphicon{color:#8c8c8c;}	
+.browse .btn a, .browse .btn .glyphicon, .sets .btn a, .sets .btn .glyphicon{color:#8c8c8c;}
 
 /* timeline results */
 #bTimelineContainer{
@@ -2096,9 +2094,9 @@ a.readmore-js-toggle{
 	width:100%;
 	height:auto;
 }
-@media (min-width: 768px) {	
+@media (min-width: 768px) {
 	.gallery #gallerySetInfo img{
-		max-width:auto;	
+		max-width:auto;
 	}
 }
 .gallery #gallerySetInfo a{
@@ -2240,13 +2238,13 @@ a.readmore-js-toggle{
 	font-weight:bold;
 }
 .gallery .galleryDetailBottom{
-	clear:both; 
-	border-bottom:1px solid #e3e3e3; 
-	padding-bottom:10px; 
+	clear:both;
+	border-bottom:1px solid #e3e3e3;
+	padding-bottom:10px;
 	margin-bottom:15px;
-}	
- 
-   
+}
+
+
 
 /* bookreader */
 .BookReaderContainer{
@@ -2259,11 +2257,11 @@ a.readmore-js-toggle{
 }
 /* overlay (for object representations) */
 #caMediaPanel {
-	position: fixed; 
-	top: 0; 
+	position: fixed;
+	top: 0;
 	left: 0;
-	width: 100%; 
-	height: 100%; 
+	width: 100%;
+	height: 100%;
 	display: none;
 	margin: 0px;
 	padding: 0px;
@@ -2281,7 +2279,7 @@ a.readmore-js-toggle{
 	font-size:16px;
 }
 #caMediaPanelContentArea {
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 }
 #caMediaDisplayContentMedia {
@@ -2308,7 +2306,7 @@ div.caMediaOverlayControls {
 	left:0px;
 	z-index: 32000;			/* needs to be on top of caMediaPanel, which has z-index=31000 */
 	opacity:.5;
-	
+
 }
 div.caMediaOverlayControls:hover {
 	opacity:1.0;
@@ -2317,7 +2315,7 @@ div.caMediaOverlayControls:hover {
 div.caMediaOverlayControls a{
 	text-decoration:none;
 	font-weight:bold;
-	color:#FFF; 
+	color:#FFF;
 }
 div.caMediaOverlayControls a:hover{
 	color:#FFF;
@@ -2342,19 +2340,19 @@ div.caMediaOverlayControls .objectInfo{
 	float:left;
 }
 div.caMediaOverlayControls .captionRight {
-	float:left; 
-	width:45%; 
-	margin-left:25px; 
-	color:#fff; 
+	float:left;
+	width:45%;
+	margin-left:25px;
+	color:#fff;
 	text-align:left;
 	font-size:14px;
 	margin-bottom:10px;
 }
 div.caMediaOverlayControls .captionLeft {
-	float:left; 
-	width:45%; 
-	margin-left:15px; 
-	color:#fff; 
+	float:left;
+	width:45%;
+	margin-left:15px;
+	color:#fff;
 	text-align:left;
 	font-size:14px;
 	margin-bottom:10px;
@@ -2386,10 +2384,10 @@ div.caMediaOverlayRepThumbs {
 	right:11px;
 	padding:3px;
 	z-index: 32000;			/* needs to be on top of caMediaPanel, which has z-index=31000 */
-	opacity:.3;	
+	opacity:.3;
 }
 div.caMediaOverlayRepThumbs:hover {
-	opacity:1;	
+	opacity:1;
 }
 div.caMediaOverlayRepThumbs img{
 	margin:2px;
@@ -2408,17 +2406,17 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 
 .DV-controls {
 	background:none;
-	background-color:#efefef;} 
-	
+	background-color:#efefef;}
+
 .DV-viewDocument .DV-views .DV-documentView span, .DV-viewThumbnails .DV-views .DV-thumbnailsView span, .DV-viewAnnotations .DV-views .DV-annotationView span, .DV-viewText .DV-views .DV-textView span, .DV-viewSearch .DV-views .DV-textView span {
     background: none;
-    
+
     }
-    
+
  .DV-pages, .DV-paper {
     background:none;
     background-color:#fff;
-}   
+}
 
 .DV-header {
     border-bottom: 1px solid #ccc;
@@ -2444,9 +2442,9 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 
 .DV-viewDocument .DV-views .DV-documentView span, .DV-viewThumbnails .DV-views .DV-thumbnailsView span, .DV-viewAnnotations .DV-views .DV-annotationView span, .DV-viewText .DV-views .DV-textView span, .DV-viewSearch .DV-views .DV-textView span {
     text-shadow: 0 0px 0 #FFFFFF;
-    
+
     }
-    
+
 .DV-searchInput {
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -2514,7 +2512,7 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 .DV-footer .DV-trigger, .DV-fullscreen {
 	border-width:0;
 	}
-	
+
 .DV-currentPagePrefix, .DV-currentPageSuffix, .DV-currentAnnotationPrefix {
     color: #666666;
     font-size: 11px;
@@ -2531,7 +2529,7 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
     padding: 3px 16px 0 0;
     position: relative;
     text-transform:uppercase;
-}	
+}
 
 .DV-narrowControls .DV-zoomBox {
     width: 80px;
@@ -2543,11 +2541,11 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 
 /* browse overlay */
 /*#caBrowsePanel {
-	position: fixed; 
-	top: 0; 
+	position: fixed;
+	top: 0;
 	left: 0;
-	width: 100%; 
-	height: 100%; 
+	width: 100%;
+	height: 100%;
 	display: none;
 	margin: 0px;
 	padding: 0px;
@@ -2565,7 +2563,7 @@ div.caMediaOverlayRepThumbs a.selectedRep img{
 	font-size:16px;
 }
 #caBrowsePanelContentArea {
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 }*/
 /* Basic Pages */
@@ -2665,4 +2663,32 @@ div.advancedSearchField {
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+/*
+ * Customizations for storymaps
+ */
+
+.vco-storymap p a, .vco-storymap p a:hover, .vco-storymap p a:focus {
+    color:white !important;
+    background: #c34528 !important;
+    border-radius:4px !important;
+    padding:1px 4px !important;
+    text-shadow: none !important;
+}
+
+h2.vco-headline {
+    text-transform: uppercase;
+}
+
+.vco-map .leaflet-container .leaflet-control-attribution .vco-knightlab-brand, .vco-map .leaflet-container .leaflet-control-attribution a.vco-knightlab-brand {
+    font-size:inherit !important;
+}
+.vco-map .leaflet-container .leaflet-control-attribution .vco-knightlab-brand span, .vco-map .leaflet-container .leaflet-control-attribution a.vco-knightlab-brand span {
+    color:black !important;
+}
+
+.copyright-mention {
+    margin-bottom:0px;
+    padding-right:20px;
 }
