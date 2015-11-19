@@ -33,12 +33,12 @@
 		<div style="clear:both; height:1px;"><!-- empty --></div>
 		<div id="footer">
 			<ul class="list-inline pull-right social">
-				© Fondation Maison Losseau
+				<small>© Fondation Maison Losseau</small>
 			</ul>
 			<div>
-                <!--<?php print _t("Footer text here"); ?>-->
+                
 			</div>
-			<div><small>Motorisé par <a href="http://www.collectiveaccess.org">CollectiveAccess</a> et déployé par <a href="http://www.ideesculture.com">idéesculture</a></small></div>
+			<div><small>Motorisé par <a href="http://www.collectiveaccess.org">CollectiveAccess</a> et déployé par <a href="http://www.ideesculture.com">idéesculture</a></small> – <a href="/gestion">Accès gestionnaire</a></div>
 		</div><!-- end footer -->
 <?php
 	//
