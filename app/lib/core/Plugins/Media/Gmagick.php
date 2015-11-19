@@ -232,8 +232,7 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 	# for import and export
 	public function register() {
 		$this->opo_config = Configuration::load();
-		$vs_external_app_config_path = $this->opo_config->get('external_applications');
-		$this->opo_external_app_config = Configuration::load($vs_external_app_config_path);
+		$this->opo_external_app_config = Configuration::load(__CA_CONF_DIR__."/external_applications.conf");
 		$this->ops_graphicsmagick_path = $this->opo_external_app_config->get('graphicsmagick_app');
 		$this->ops_imagemagick_path = $this->opo_external_app_config->get('imagemagick_path');
 		$this->ops_CoreImage_path = $this->opo_external_app_config->get('coreimagetool_app');
@@ -287,6 +286,7 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		
 		try {
 			if ($ps_filepath != '' && ($r_handle = new Gmagick($ps_filepath))) {
+				$this->setResourceLimits($r_handle);
 				$mimetype = $this->_getMagickImageMimeType($r_handle);
 				if (($mimetype) && $this->info["IMPORT"][$mimetype]) {
 					return $mimetype;
@@ -477,6 +477,7 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 				
 				try {
 					$handle = new Gmagick($ps_filepath);
+					$this->setResourceLimits($handle);
 					$handle->setimageindex(0);		// force use of first image in multi-page TIFF
 					$this->handle = $handle;
 					$this->filepath = $ps_filepath;
@@ -485,43 +486,43 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 					$this->metadata = array();
 					
 					// exif
-					if(function_exists('exif_read_data')) {
+					if(function_exists('exif_read_data') && !($this->opo_config->get('dont_use_exif_read_data'))) {
 						if (is_array($va_exif = caSanitizeArray(@exif_read_data($ps_filepath, 'EXIF', true, false)))) { 							
-							//
-							// Rotate incoming image as needed
-							//
-							if (isset($va_exif['IFD0']['Orientation'])) {
-								$vn_orientation = $va_exif['IFD0']['Orientation'];
-								$vs_tmp_basename = tempnam(caGetTempDirPath(), 'ca_image_tmp');
-								
-								$vb_is_rotated = false;
-								switch($vn_orientation) {
-									case 3:
-										$this->handle->rotateimage("#FFFFFF", 180);
-										unset($va_exif['IFD0']['Orientation']);
-										$vb_is_rotated = true;
-										break;
-									case 6:
-										$this->handle->rotateimage("#FFFFFF", 90);
-										unset($va_exif['IFD0']['Orientation']);
-										$vb_is_rotated = true;
-										break;
-									case 8:
-										$this->handle->rotateimage("#FFFFFF", -90);
-										unset($va_exif['IFD0']['Orientation']);
-										$vb_is_rotated = true;
-										break;
-								}
-								
-								if($vb_is_rotated) {								
-									if ( $this->handle->writeimage($vs_tmp_basename) ) {
-										$va_tmp = $this->handle->getimagegeometry();
-										$this->properties["faces"] = $this->opa_faces = caDetectFaces($vs_tmp_basename, $va_tmp['width'], $va_tmp['height']);
-									}
-									@unlink($vs_tmp_basename);
-								}
-							}
-	
+							 
+ 							// Rotate incoming image as needed
+ 							
+ 							if (isset($va_exif['IFD0']['Orientation'])) {
+ 								$vn_orientation = $va_exif['IFD0']['Orientation'];
+ 								$vs_tmp_basename = tempnam(caGetTempDirPath(), 'ca_image_tmp');
+ 								
+ 								$vb_is_rotated = false;
+ 								switch($vn_orientation) {
+ 									case 3:
+ 										$this->handle->rotateimage("#FFFFFF", 180);
+ 										unset($va_exif['IFD0']['Orientation']);
+ 										$vb_is_rotated = true;
+ 										break;
+ 									case 6:
+ 										$this->handle->rotateimage("#FFFFFF", 90);
+ 										unset($va_exif['IFD0']['Orientation']);
+ 										$vb_is_rotated = true;
+ 										break;
+ 									case 8:
+ 										$this->handle->rotateimage("#FFFFFF", -90);
+ 										unset($va_exif['IFD0']['Orientation']);
+ 										$vb_is_rotated = true;
+ 										break;
+ 								}
+ 								
+ 								if($vb_is_rotated) {								
+ 									if ( $this->handle->writeimage($vs_tmp_basename) ) {
+ 										$va_tmp = $this->handle->getimagegeometry();
+ 										$this->properties["faces"] = $this->opa_faces = caDetectFaces($vs_tmp_basename, $va_tmp['width'], $va_tmp['height']);
+ 									}
+ 									@unlink($vs_tmp_basename);
+ 								}
+ 							}
+ 	
 							$this->metadata['EXIF'] = $va_exif;
 						}
 					}
@@ -676,6 +677,7 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 					
 					try {
 						$w = new Gmagick($parameters['image']);
+						$this->setResourceLimits($w);
 					} catch (Exception $e) {
 						$this->postError(1610, _t("Couldn't load watermark image at %1", $parameters['image']), "WLPlugGmagick->transform:WATERMARK()");
 						return false;
@@ -1138,6 +1140,16 @@ class WLPlugMediaGmagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		$this->metadata = array();
 		$this->errors = array();
 		$this->opa_faces = null;
+	}
+	# ------------------------------------------------
+	private function setResourceLimits($po_handle) {
+		$po_handle->setResourceLimit(Gmagick::RESOURCETYPE_MEMORY, 1024*1024*1024);		// Set maximum amount of memory in bytes to allocate for the pixel cache from the heap.
+		$po_handle->setResourceLimit(Gmagick::RESOURCETYPE_MAP, 1024*1024*1024);		// Set maximum amount of memory map in bytes to allocate for the pixel cache.
+		$po_handle->setResourceLimit(Gmagick::RESOURCETYPE_AREA, 6144*6144);			// Set the maximum width * height of an image that can reside in the pixel cache memory.
+		$po_handle->setResourceLimit(Gmagick::RESOURCETYPE_FILE, 1024);					// Set maximum number of open pixel cache files.
+		$po_handle->setResourceLimit(Gmagick::RESOURCETYPE_DISK, 64*1024*1024*1024);					// Set maximum amount of disk space in bytes permitted for use by the pixel cache.	
+
+		return true;
 	}
 	# ------------------------------------------------
 	public function cleanup() {

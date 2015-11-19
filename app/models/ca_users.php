@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------
  *
  * Software by Whirl-i-Gig (http://www.whirl-i-gig.com)
- * Copyright 2008-2014 Whirl-i-Gig
+ * Copyright 2008-2015 Whirl-i-Gig
  *
  * For more information visit http://www.CollectiveAccess.org
  *
@@ -290,6 +290,7 @@ class ca_users extends BaseModel {
 	 * User and group role caches
 	 */
 	static $s_user_role_cache = array();
+	static $s_user_group_cache = array();
 	static $s_group_role_cache = array();
 	static $s_user_type_access_cache = array();
 	static $s_user_source_access_cache = array();
@@ -322,7 +323,7 @@ class ca_users extends BaseModel {
 	public function __construct($pn_id=null, $pb_use_cache=false) {
 		parent::__construct($pn_id, $pb_use_cache);	# call superclass constructor	
 		
-		$this->opo_auth_config = Configuration::load($this->getAppConfig()->get("authentication_config"));
+		$this->opo_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 		$this->opo_log = new Eventlog();
 	}
 	# ----------------------------------------
@@ -1299,6 +1300,7 @@ class ca_users extends BaseModel {
 	 */
 	public function getUserGroups() {
 		if ($pn_user_id = $this->getPrimaryKey()) {
+			if (isset(ca_users::$s_user_group_cache[$pn_user_id])) { return ca_users::$s_user_group_cache[$pn_user_id]; }
 			$o_db = $this->getDb();
 			$qr_res = $o_db->query("
 				SELECT 
@@ -1309,13 +1311,13 @@ class ca_users extends BaseModel {
 				INNER JOIN ca_users_x_groups AS wuxg ON wuxg.group_id = wug.group_id
 				WHERE wuxg.user_id = ?
 				ORDER BY wug.rank
-			", (int)$pn_user_id);
+			", array((int)$pn_user_id));
 			$va_groups = array();
 			while($qr_res->nextRow()) {
 				$va_groups[$qr_res->get("group_id")] = $qr_res->getRow();
 			}
 			
-			return $va_groups;
+			return ca_users::$s_user_group_cache[$pn_user_id] = $va_groups;
 		} else {
 			return false;
 		}
@@ -1489,6 +1491,7 @@ class ca_users extends BaseModel {
 						$o_currency = new Zend_Currency();
 						return ($vs_currency_specifier = $o_currency->getShortName()) ? $vs_currency_specifier : "CAD";
 					}
+					return $va_pref_info["default"] ? $va_pref_info["default"] : null;
 					break;
 				# ---------------------------------
 				default:
@@ -1510,7 +1513,7 @@ class ca_users extends BaseModel {
 		if ($this->isValidPreference($ps_pref)) {
 			if ($this->purify()) {
 				if (!BaseModel::$html_purifier) { BaseModel::$html_purifier = new HTMLPurifier(); }
-				$ps_val = BaseModel::$html_purifier->purify($ps_val);
+				if(!is_array($ps_val)) { $ps_val = BaseModel::$html_purifier->purify($ps_val); }
 			}
 			if ($this->isValidPreferenceValue($ps_pref, $ps_val, 1)) {
 				$va_prefs = $this->getVar("_user_preferences");
@@ -1784,9 +1787,8 @@ class ca_users extends BaseModel {
 			
 			$va_pref_info = $this->getPreferenceInfo($ps_pref);
 			
-			$vs_current_value = $this->getPreference($ps_pref);
+			if (is_null($vs_current_value = $this->getPreference($ps_pref))) { $vs_current_value = $this->getPreferenceDefault($ps_pref); }
 			$vs_output = "";
-			
 			$vs_class = "";
 			$vs_classname = "";
 			if(isset($pa_options['classname']) && $pa_options['classname']){
@@ -2115,6 +2117,19 @@ class ca_users extends BaseModel {
 			) OR ";
 		}
 		
+		$vs_role_sql = '';
+		if (is_array($va_roles = $this->getUserRoles()) && sizeof($va_roles)) {
+			$vs_role_sql = " (
+				(ceui.ui_id IN (
+						SELECT ui_id 
+						FROM ca_editor_uis_x_roles
+						WHERE 
+							role_id IN (".join(',', array_keys($va_roles)).")
+					)
+				)
+			) OR ";
+		}
+		
 		$o_db = $this->getDb();
 		$qr_uis = $o_db->query("
 			SELECT ceui.ui_id, ceuil.name, ceuil.locale_id, ceuitr.type_id
@@ -2126,6 +2141,7 @@ class ca_users extends BaseModel {
 					ceui.user_id = ? OR 
 					ceui.is_system_ui = 1 OR
 					{$vs_group_sql}
+					{$vs_role_sql}
 					(ceui.ui_id IN (
 							SELECT ui_id 
 							FROM ca_editor_uis_x_users 
@@ -2164,6 +2180,19 @@ class ca_users extends BaseModel {
 			) OR ";
 		}
 		
+		$vs_role_sql = '';
+		if (is_array($va_roles = $this->getUserRoles()) && sizeof($va_roles)) {
+			$vs_role_sql = " (
+				(ceui.ui_id IN (
+						SELECT ui_id 
+						FROM ca_editor_uis_x_roles
+						WHERE 
+							role_id IN (".join(',', array_keys($va_roles)).")
+					)
+				)
+			) OR ";
+		}
+		
 		$o_db = $this->getDb();
 		$qr_uis = $o_db->query("
 			SELECT *
@@ -2174,6 +2203,7 @@ class ca_users extends BaseModel {
 					ceui.user_id = ? OR 
 					ceui.is_system_ui = 1 OR
 					{$vs_group_sql}
+					{$vs_role_sql}
 					(ceui.ui_id IN (
 							SELECT ui_id 
 							FROM ca_editor_uis_x_users 
@@ -2445,14 +2475,9 @@ class ca_users extends BaseModel {
 	 * @param mixed $ps_user_name_or_id The user name or numeric user_id of the user
 	 * @return boolean True if user exists, false if not
 	 */
-	public function exists($ps_user_name_or_id) {
-		$t_user = new ca_users();
-		if ($t_user->load($ps_user_name_or_id)) {
+	 static public function exists($ps_user_name_or_id, $pa_options=null) {
+		if (parent::exists($ps_user_name_or_id)) {
 			return true;
-		} else {
-			if ($t_user->load(array("user_name" => $ps_user_name_or_id))) {
-				return true;
-			}
 		}
 		return false;
 	}
@@ -2872,9 +2897,17 @@ class ca_users extends BaseModel {
 			}
 		}
 
-		if(AuthenticationManager::authenticate($ps_username, $ps_password, $pa_options)) {
-			$this->load($ps_username);
-			return true;
+		try {
+			if(AuthenticationManager::authenticate($ps_username, $ps_password, $pa_options)) {
+				$this->load($ps_username);
+				return true;
+			}
+		}  catch (Exception $e) {
+			$this->opo_log->log(array(
+				'CODE' => 'SYS', 'SOURCE' => 'ca_users/authenticate',
+				'MESSAGE' => _t('There was an error while trying to authenticate user %1: The message was %2 : %3', $ps_username, get_class($e), $e->getMessage())
+			));
+			return false;
 		}
 		
 		// check ips
@@ -3081,6 +3114,10 @@ class ca_users extends BaseModel {
 	 *		__CA_BUNDLE_ACCESS_EDIT__ (implies ability to view and change bundle content)
 	 *		__CA_BUNDLE_ACCESS_READONLY__ (implies ability to view bundle content only)
 	 *		__CA_BUNDLE_ACCESS_NONE__ (indicates that the user has no access to bundle)
+	 *
+	 * @param string $ps_table_name
+	 * @param string $ps_bundle_name
+	 * @return int
 	 */
 	public function getBundleAccessLevel($ps_table_name, $ps_bundle_name) {
 		$vs_cache_key = $ps_table_name.'/'.$ps_bundle_name."/".$this->getPrimaryKey();
@@ -3104,8 +3141,16 @@ class ca_users extends BaseModel {
 							if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 						}
 					}
+				} else {
+					// for roles that don't have 'bundle_access_settings' set, use default.
+					// those are most likely roles that came from a profile, didn't have bundle-level
+					// access settings set in the profile and haven't been saved through the UI
+					$vn_access = $this->getAppConfig()->get('default_bundle_access_level');
+
+					if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 				}
 			}
+
 			if ($vn_access < 0) {
 				$vn_access = (int)$this->getAppConfig()->get('default_bundle_access_level');
 			}
@@ -3138,7 +3183,8 @@ class ca_users extends BaseModel {
 			} else {
 				$t_list = new ca_lists();
 				$t_instance = $this->getAppDatamodel()->getInstanceByTableName($ps_table_name, true);
-				$vn_type_id = (int)$t_list->getItemIDFromList($t_instance->getTypeListCode(), $pm_type_code_or_id);
+				if(!($vs_type_list_code = $t_instance->getTypeListCode())) { return __CA_BUNDLE_ACCESS_EDIT__; } // no type-level acces control for tables without type lists (like ca_lists)
+				$vn_type_id = (int)$t_list->getItemIDFromList($vs_type_list_code, $pm_type_code_or_id);
 			}
 			$vn_access = -1;
 			foreach($va_roles as $vn_role_id => $va_role_info) {
@@ -3150,6 +3196,13 @@ class ca_users extends BaseModel {
 						
 						if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 					}
+				} else {
+					// for roles that don't have 'type_access_settings' set, use default.
+					// those are most likely roles that came from a profile, didn't have type-level
+					// access settings set in the profile and haven't been saved through the UI
+					$vn_access = $this->getAppConfig()->get('default_type_access_level');
+
+					if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 				}
 			}
 			
@@ -3243,6 +3296,13 @@ class ca_users extends BaseModel {
 						
 						if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 					}
+				} else {
+					// for roles that don't have 'source_access_settings' set, use default.
+					// those are most likely roles that came from a profile, didn't have source-level
+					// access settings set in the profile and haven't been saved through the UI
+					$vn_access = $this->getAppConfig()->get('default_source_access_level');
+
+					if ($vn_access == __CA_BUNDLE_ACCESS_EDIT__) { break; }	// already at max
 				}
 			}
 			
@@ -3356,8 +3416,10 @@ class ca_users extends BaseModel {
 			}
 		}
 	
+		if(!sizeof($va_access_by_item_id)) { return array(); }
 		$va_item_values = ca_lists::itemIDsToItemValues(array_keys($va_access_by_item_id), array('transaction' => $this->getTransaction()));
 	
+		if(!is_array($va_item_values) || !sizeof($va_item_values)) { return array(); }
 		$va_ret = array();
 		if (is_array($va_item_values)) {
 			foreach($va_item_values as $vn_item_id => $vn_val) {

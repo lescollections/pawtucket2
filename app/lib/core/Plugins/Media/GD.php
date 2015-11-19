@@ -121,8 +121,7 @@ class WLPlugMediaGD Extends BaseMediaPlugin Implements IWLPlugMedia {
 	# for import and export
 	public function register() {
 		$this->opo_config = Configuration::load();
-		$vs_external_app_config_path = $this->opo_config->get('external_applications');
-		$this->opo_external_app_config = Configuration::load($vs_external_app_config_path);
+		$this->opo_external_app_config = Configuration::load(__CA_CONF_DIR__."/external_applications.conf");
 		$this->ops_imagemagick_path = $this->opo_external_app_config->get('imagemagick_path');
 		$this->ops_graphicsmagick_path = $this->opo_external_app_config->get('graphicsmagick_app');
 		$this->ops_CoreImage_path = $this->opo_external_app_config->get('coreimagetool_app');
@@ -358,7 +357,7 @@ class WLPlugMediaGD Extends BaseMediaPlugin Implements IWLPlugMedia {
 					$vs_typename = "GIF";
 					break;
 				case IMAGETYPE_JPEG:
-					if(function_exists('exif_read_data')) {
+					if(function_exists('exif_read_data') && !($this->opo_config->get('dont_use_exif_read_data'))) {
 						$this->metadata["EXIF"] = $va_exif = caSanitizeArray(@exif_read_data($filepath, 'EXIF', true, false));
 						
 						

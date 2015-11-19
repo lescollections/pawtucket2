@@ -302,8 +302,10 @@ final class ConfigurationCheck {
 	 * Does the HTMLPurifier DefinitionCache dir exist and is it writable?
 	 */
 	public static function htmlPurifierDirQuickCheck() {
-		if(!file_exists(__CA_LIB_DIR__."/core/Parsers/htmlpurifier/standalone/HTMLPurifier/DefinitionCache") || !is_writable(__CA_LIB_DIR__."/core/Parsers/htmlpurifier/standalone/HTMLPurifier/DefinitionCache")){
-			self::addError(_t("It looks like the directory for HTML filtering caches is not writable by the webserver. Please change the permissions of %1 and enable the user which runs the webserver to write this directory.",__CA_LIB_DIR__."/core/Parsers/htmlpurifier/standalone/HTMLPurifier/DefinitionCache"));
+		$vs_purifier_path = __CA_BASE_DIR__.'/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer';
+
+		if(!file_exists($vs_purifier_path) || !is_writable($vs_purifier_path)){
+			self::addError(_t("It looks like the directory for HTML filtering caches is not writable by the webserver. Please change the permissions of %1 and enable the user which runs the webserver to write this directory.", $vs_purifier_path));
 		}
 		return true;
 	}
@@ -374,6 +376,9 @@ final class ConfigurationCheck {
 		}
 		if (!in_array('sha256', hash_algos())){
 			self::addError(_t("Your PHP installation doesn't seem to have support for the sha256 hashing algorithm. Please install a newer version of either PHP or the hash module."));
+		}
+		if (!class_exists('PharData')) {
+			self::addError(_t("The PHP phar module is required for CollectiveAccess to run. Please install it."));
 		}
 		
 		if (@preg_match('/\p{L}/u', 'a') != 1) {

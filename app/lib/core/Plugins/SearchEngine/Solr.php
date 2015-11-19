@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------
  *
  * Software by Whirl-i-Gig (http://www.whirl-i-gig.com)
- * Copyright 2008-2014 Whirl-i-Gig
+ * Copyright 2008-2015 Whirl-i-Gig
  *
  * For more information visit http://www.CollectiveAccess.org
  *
@@ -60,10 +60,8 @@ class WLPlugSearchEngineSolr extends BaseSearchPlugin implements IWLPlugSearchEn
 	static $s_element_code_cache = array();
 	static $s_fieldnum_cache = array();				// cached field name-to-number values used when indexing
 	# -------------------------------------------------------
-	public function __construct(){
-		parent::__construct();
-		
-		$this->opo_db = new Db();
+	public function __construct($po_db=null){
+		parent::__construct($po_db);
 
 		$this->opo_tep = new TimeExpressionParser();	
 		
@@ -805,7 +803,7 @@ class WLPlugSearchEngineSolr extends BaseSearchPlugin implements IWLPlugSearchEn
 				"/admin/cores" /* CoreAdminHandler */
 			);
 
-			$vo_search_indexing_config = Configuration::load($this->opo_search_config->get('search_indexing_config'));
+			$vo_search_indexing_config = Configuration::load(__CA_CONF_DIR__.'/search_indexing.conf');
 			$va_tables = $vo_search_indexing_config->getAssocKeys();
 			/* reload all tables */
 			foreach($va_tables as $vs_table){

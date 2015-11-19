@@ -223,8 +223,7 @@ class WLPlugMediaImageMagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 	public function register() {
 		// get config for external apps
 		$this->opo_config = Configuration::load();
-		$vs_external_app_config_path = $this->opo_config->get('external_applications');
-		$this->opo_external_app_config = Configuration::load($vs_external_app_config_path);
+		$this->opo_external_app_config = Configuration::load(__CA_CONF_DIR__."/external_applications.conf");
 		$this->ops_imagemagick_path = $this->opo_external_app_config->get('imagemagick_path');
 		$this->ops_graphicsmagick_path = $this->opo_external_app_config->get('graphicsmagick_app');
 		
@@ -1010,8 +1009,15 @@ class WLPlugMediaImageMagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		if (caMediaPluginImageMagickInstalled($this->ops_imagemagick_path)) {
 			$va_metadata = array();
 			
-			if(function_exists('exif_read_data')) {
+			if(function_exists('exif_read_data') && !($this->opo_config->get('dont_use_exif_read_data'))) {
 				if (is_array($va_exif = caSanitizeArray(@exif_read_data($ps_filepath, 'EXIF', true, false)))) { $va_metadata['EXIF'] = $va_exif; }
+			}
+
+			// if the builtin EXIF extraction is not used or failed for some reason, try ExifTool
+			if(!isset($va_metadata['EXIF']) || !is_array($va_metadata['EXIF'])) {
+				if(caExifToolInstalled()) {
+					$va_metadata['EXIF'] = caExtractMetadataWithExifTool($ps_filepath, true);
+				}
 			}
 			
 			$o_xmp = new XMPParser();

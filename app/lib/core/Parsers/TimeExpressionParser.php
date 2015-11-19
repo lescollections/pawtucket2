@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------
  *
  * Software by Whirl-i-Gig (http://www.whirl-i-gig.com)
- * Copyright 2006-2014 Whirl-i-Gig
+ * Copyright 2006-2015 Whirl-i-Gig
  *
  * For more information visit http://www.CollectiveAccess.org
  *
@@ -156,7 +156,7 @@ class TimeExpressionParser {
 		global $g_ui_locale;
 		
 		$o_config = Configuration::load();
-		$this->opo_datetime_settings = Configuration::load($o_config->get('datetime_config'));
+		$this->opo_datetime_settings = Configuration::load(__CA_CONF_DIR__.'/datetime.conf');
 		
 		if (!$ps_iso_code) { $ps_iso_code = $g_ui_locale; }
 		if (!$ps_iso_code) { $ps_iso_code = 'en_US'; }
@@ -221,7 +221,7 @@ class TimeExpressionParser {
 		if ($this->tokenize($this->preprocess($ps_expression)) == 0) {
 			// nothing to parse
 			return false;
-		} 
+		}
 
 		$va_dates = array();
 		
@@ -848,7 +848,7 @@ class TimeExpressionParser {
 							if (($vn_int >= 1000) && ($vn_int <= 9999)) {
 								$this->skipToken();
 								return array('day' => null, 'month' => null, 'year' => $vn_int, 'era'=> TEP_ERA_AD);
-							} elseif(($vn_int < 0) && is_int($vn_it)) {
+							} elseif(($vn_int < 0) && is_int($vn_int)) {
 								$this->skipToken();
 								return array('day' => null, 'month' => null, 'year' => $vn_int, 'era'=> TEP_ERA_BC);
 							} else {
@@ -881,17 +881,18 @@ class TimeExpressionParser {
 							if ($va_peek = $this->peekToken()) {
 								if ($va_peek['type'] == TEP_TOKEN_INTEGER) {
 									$vn_int = intval($va_peek['value']);
-									if (($vn_int >= 1000) && ($vn_int <= 9999)) {
+									// we need support for "May 31, 1990" so we can't check $vn_int > 1 here
+									if (($vn_int > 31) && ($vn_int <= 9999)) {
 										$vn_year = $vn_int;
 										$this->skipToken();
 									} else {
-										if (($vn_int >= 1) && ($vn_int <=31)) {
+										if (($vn_int >= 1) && ($vn_int <= 31)) {
 											$vn_day = $vn_int;
 											$this->skipToken();
 											if ($va_peek = $this->peekToken()) {
 												if ($va_peek['type'] == TEP_TOKEN_INTEGER) {
 													$vn_int = intval($va_peek['value']);
-													if (($vn_int >= 1000) && ($vn_int <= 9999)) {
+													if (($vn_int >= 1) && ($vn_int <= 9999)) {
 														$vn_year = $vn_int;
 														$this->skipToken();
 													}
@@ -921,7 +922,7 @@ class TimeExpressionParser {
 							
 							// is a year defined? (it's optional)
 							if ($va_peek = $this->peekToken()) {
-								if (($va_peek['type'] == TEP_TOKEN_INTEGER) && (intval($va_peek['value']) >= 1000) && (intval($va_peek['value']) <= 9999)) {
+								if (($va_peek['type'] == TEP_TOKEN_INTEGER) && (intval($va_peek['value']) >= 1) && (intval($va_peek['value']) <= 9999)) {
 									$vn_year = intval($va_peek['value']);
 									$this->skipToken();
 								}
@@ -1376,9 +1377,9 @@ class TimeExpressionParser {
 		$va_dates = array();
 		if (sizeof($va_decade_indicators)) {
 			if (
-				(preg_match("/^([\d]{4})[\']{0,1}(".join("|", $va_decade_indicators)."){1}$/i", $va_token['value'], $va_matches))
+				(preg_match("/^([\d]{2,4})[\']{0,1}(".join("|", $va_decade_indicators)."){1}$/i", $va_token['value'], $va_matches))
 				||
-				(preg_match("/^([\d]{3})\_$/", $va_token['value'], $va_matches))
+				(preg_match("/^([\d]{3})(\_)$/", $va_token['value'], $va_matches))
 			) {
 				$vn_is_circa = $vb_circa_is_set ? 1 : 0;
 				
@@ -1401,20 +1402,24 @@ class TimeExpressionParser {
 							break(2);
 					}
 				}
-				if (strlen($va_matches[1]) == 3) { $va_matches[1].='0'; }
+
+				// decade expression with trailing underscore: 191_
+				if (isset($va_matches[2]) && ($va_matches[2] == '_') && (strlen($va_matches[1]) == 3)) {
+					$va_matches[1].='0';
+				}
 			
-				$vn_start_year = $va_matches[1] - ($va_matches[1] % 10);
+				$vn_start_year = (int) ($va_matches[1] - ($va_matches[1] % 10));
 				$va_dates['start'] = array(
 					'month' => 1, 'day' => 1, 'year' => $vn_start_year,
 					'uncertainty' => 0, 'uncertainty_units' => '', 'is_circa' => $vn_is_circa
 				);
 				$va_dates['end'] = array(
-					'month' => 12, 'day' => 31, 'year' => $vn_start_year + 9,
+					'month' => 12, 'day' => 31, 'year' => ($vn_start_year + 9),
 					'uncertainty' => 0, 'uncertainty_units' => '', 'is_circa' => $vn_is_circa
 				);
 			}
 		}
-		
+
 		return $va_dates;
 	}
 	# -------------------------------------------------------------------
@@ -2082,7 +2087,8 @@ class TimeExpressionParser {
 	#	end_as_iso8601 (true|false) [if true only the end date of the range is returned, in ISO8601 format]
 	#	dontReturnValueIfOnSameDayAsStart (true|false) [Only valid in conjunction with end_as_iso8601]
 	#	startHistoricTimestamp
-	#	endHistoricTimestamp 
+	#	endHistoricTimestamp
+	#	format 			(string) Format date/time output using PHP date()-style format string. The following subset of PHP date() formtting characters are supported: Y y d j F m n t g G h H i s [Default is null; don't use format string for output]
 	public function getText($pa_options=null) {
 		if (!$pa_options) { $pa_options = array(); }
 		foreach(array(
@@ -2227,8 +2233,10 @@ class TimeExpressionParser {
 				$va_end_pieces['year'] = '????';
 				$pa_options['dateFormat'] = 'delimited';
 			}
-			
-			if ($va_start_pieces['era'] != $va_end_pieces['era']) {
+
+			// show era for dates that span eras, but not for 'before XXXX' dates, which technically span
+			// eras but .. you know, not really. Their startpoint is TEP_START_OF_UNIVERSE
+			if (($va_start_pieces['era'] != $va_end_pieces['era']) && ($va_dates['start'] > TEP_START_OF_UNIVERSE)) {
 				$pa_options['showADEra'] = true;
 			}
 			
@@ -2304,6 +2312,76 @@ class TimeExpressionParser {
 			} else {
 				$vb_differing_uncertainties = false;
 			}
+			
+			// catch formats
+			if ($pa_options['format']) {
+				$va_seen = array();
+				$vs_output = '';
+				for($vn_i=0; $vn_i < strlen($pa_options['format']); $vn_i++) {
+					$vb_not_handled = false;
+					switch($vs_c = $pa_options['format'][$vn_i]) {
+						case 'Y':
+							$vn_year = (!$va_seen[$vs_c]) ? $va_start_pieces['year'] : $va_end_pieces['year'];
+							if (($vn_year == TEP_START_OF_UNIVERSE) || ($vn_year == TEP_END_OF_UNIVERSE)) { $vn_year = null; }
+							$vs_output .= $vn_year;
+							break;
+						case 'y':
+							$vn_year = (!$va_seen[$vs_c]) ? $va_start_pieces['year'] : $va_end_pieces['year'];
+							if (($vn_year == TEP_START_OF_UNIVERSE) || ($vn_year == TEP_END_OF_UNIVERSE)) { $vn_year = null; }
+							$vs_output .= substr($vn_year, 2);
+							break;
+						case 'd':
+							$vs_output .= (!$va_seen[$vs_c]) ? sprintf("%02d", $va_start_pieces['day']) : sprintf("%02d", $va_end_pieces['day']);
+							break;
+						case 'j':
+							$vs_output .= (!$va_seen[$vs_c]) ? (int)$va_start_pieces['day'] : (int)$va_end_pieces['day'];
+							break;
+						case 'F':
+							$vs_output .= (!$va_seen[$vs_c]) ? $this->getMonthName($va_start_pieces['month']) : $this->getMonthName($va_end_pieces['month']);
+							break;
+						case 'm':
+							$vs_output .= (!$va_seen[$vs_c]) ? sprintf("%02d", $va_start_pieces['day']) : sprintf("%02d", $va_end_pieces['day']);
+							break;
+						case 'n':
+							$vs_output .= (!$va_seen[$vs_c]) ? (int)$va_start_pieces['day'] : (int)$va_end_pieces['day'];
+							break;
+						case 't':
+							$vs_output .= (!$va_seen[$vs_c]) ? $this->daysInMonth($va_start_pieces['month'], $va_start_pieces['year']) : $this->daysInMonth($va_end_pieces['month'], $va_end_pieces['year']);
+							break;
+						case 'g':
+							$vn_24h_time = (!$va_seen[$vs_c]) ? (int)$va_start_pieces['hours'] : (int)$va_end_pieces['hours'];
+							if ($vn_24h_time > 12) { $vn_24h_time -= 12; }
+							$vs_output .= $vn_24h_time;
+							break;
+						case 'G':
+							$vs_output .= (!$va_seen[$vs_c]) ? (int)$va_start_pieces['hours'] : (int)$va_end_pieces['hours'];
+							break;
+						case 'h':
+							$vn_24h_time = (!$va_seen[$vs_c]) ? (int)$va_start_pieces['hours'] : (int)$va_end_pieces['hours'];
+							if ($vn_24h_time > 12) { $vn_24h_time -= 12; }
+							$vs_output .= sprintf("%02d", $vn_24h_time);
+							break;
+						case 'H':
+							$vs_output .= (!$va_seen[$vs_c]) ? sprintf("%02d", $va_start_pieces['hours']) : sprintf("%02d", $va_end_pieces['hours']);
+							break;
+						case 'i':
+							$vs_output .= (!$va_seen[$vs_c]) ? sprintf("%02d", $va_start_pieces['minutes']) : sprintf("%02d", $va_end_pieces['minutes']);
+							break;
+						case 's':
+							$vs_output .= (!$va_seen[$vs_c]) ? sprintf("%02d", $va_start_pieces['seconds']) : sprintf("%02d", $va_end_pieces['seconds']);
+							break;
+						default:
+							$vb_not_handled = true;
+							$vs_output .= $vs_c;
+							break;
+					}
+					if (!$vb_not_handled) {
+						$va_seen[$vs_c]++;
+					}
+				}
+				
+				return $vs_output;
+			}
 
 			// catch quarter centuries
 			if (
@@ -2360,7 +2438,12 @@ class TimeExpressionParser {
 
 				if ($va_end_pieces['hours'] == 23 && $va_end_pieces['minutes'] == 59 && $va_end_pieces['seconds'] == 59) {
 					if ($va_end_pieces['day'] == 31 && $va_end_pieces['month'] == 12) {
-						return $vs_before_qualifier.' '. $this->_dateToText(array('year' => $va_end_pieces['year'], 'era' => $va_end_pieces['era'], 'uncertainty' => $va_end_pieces['uncertainty'], 'uncertainty_units' => $va_end_pieces['uncertainty_units']), $pa_options);
+						return $vs_before_qualifier.' '. $this->_dateToText(array(
+							'year' => $va_end_pieces['year'],
+							'era' => $va_end_pieces['era'],
+							'uncertainty' => $va_end_pieces['uncertainty'],
+							'uncertainty_units' => $va_end_pieces['uncertainty_units']
+						), $pa_options);
 					} else {
 						return $vs_before_qualifier.' '. $this->_dateToText($va_end_pieces, $pa_options);
 					}
@@ -2373,7 +2456,12 @@ class TimeExpressionParser {
 			if ($va_dates['end'] >= TEP_END_OF_UNIVERSE) {
 				if ($va_start_pieces['hours'] == 0 && $va_start_pieces['minutes'] == 0 && $va_start_pieces['seconds'] == 0) {
 					if ($va_start_pieces['day'] == 1 && $va_start_pieces['month'] == 1) {
-						$vs_date = $this->_dateToText(array('year' => $va_start_pieces['year'], 'era' => $va_start_pieces['era'], 'uncertainty' => $va_start_pieces['uncertainty'], 'uncertainty_units' => $va_start_pieces['uncertainty_units']), $pa_options);
+						$vs_date = $this->_dateToText(array(
+							'year' => $va_start_pieces['year'],
+							'era' => $va_start_pieces['era'],
+							'uncertainty' => $va_start_pieces['uncertainty'],
+							'uncertainty_units' => $va_start_pieces['uncertainty_units']
+						), $pa_options);
 					} else {
 						$vs_date = $this->_dateToText($va_start_pieces, $pa_options);
 					}
@@ -2881,6 +2969,10 @@ class TimeExpressionParser {
 		return date("t", mktime(0, 0, 0, $pn_month, 1, $pn_year));
 	}
 	# -------------------------------------------------------------------
+	public function daysInYear($pn_year) {
+		return ((($year % 4) == 0) && ((($year % 100) != 0) || (($year %400) == 0))) ? 366 : 365;
+	}
+	# -------------------------------------------------------------------
 	public function getDayList() {
 		return $this->opo_language_settings->getList('dayListDisplay');
 	}
@@ -2949,7 +3041,7 @@ class TimeExpressionParser {
 	public function getISODateTime($pa_date, $ps_mode='START', $pa_options=null) {
 		if (!$pa_date['month']) { $pa_date['month'] = ($ps_mode == 'END') ? 12 : 1; }
 		if (!$pa_date['day']) { $pa_date['day'] = ($ps_mode == 'END') ? 31 : 1; }
-		if ($ps_mode = 'FULL') {
+		if ($ps_mode == 'FULL') {
 			$vs_date = $pa_date['year'].'-'.sprintf("%02d", $pa_date['month']).'-'.sprintf("%02d", $pa_date['day']);
 			
 			if (!isset($pa_options['timeOmit']) || !$pa_options['timeOmit']) {
@@ -3124,31 +3216,67 @@ class TimeExpressionParser {
 				
 				if (!$vn_s || !$vn_e) { break; }
 				
-				$vs_bc_indicator = 			$this->opo_language_settings->get("dateBCIndicator");
+				$vs_bc_indicator = $this->opo_language_settings->get("dateBCIndicator");
 				if ($vn_s <= $vn_e) {
-					for($vn_y=$vn_s; $vn_y <= $vn_e; $vn_y++) {
-						if ($vn_y == 0) { continue; }
-						if ($vn_y < 0) {
-							$va_values[(int)$vn_y] = abs($vn_y).' '.$vs_bc_indicator;
+					for($y=$vn_s; $y <= $vn_e; $y++) {
+						if ($y == 0) { continue; }
+						if ($y < 0) {
+							$va_values[(int)$y] = abs($y).' '.$vs_bc_indicator;
 						} else {
-							$va_values[(int)$vn_y] = $vn_y;
+							$va_values[(int)$y] = $y;
 						}
 					}
 				}
 				break;
 		}
-		
+
 		return $va_values;
+	}
+	# -------------------------------------------------------------------
+	/**
+	 * Return time in currently loaded date range.
+	 *
+	 * @param array $pa_options Options include:
+	 *		returnAs = time units of return value. Valid values are: days, hours, minutes, seconds. [Default is seconds]
+	 * @return int Time in interval
+	 */
+	public function interval($pa_options=null) {
+		if (!$this->opn_start_historic || !$this->opn_end_historic) { return null; }
+		if ($this->opn_start_historic > $this->opn_end_historic) { return null; }
+		$va_start = $this->getHistoricDateParts($this->opn_start_historic);
+		$va_end = $this->getHistoricDateParts($this->opn_end_historic);
+		
+		$vo_start = new DateTime($this->getISODateTime($va_start, 'FULL'));
+		$vo_end = new DateTime($this->getISODateTime($va_end, 'FULL'));
+		
+		$vo_interval = $vo_start->diff($vo_end);
+		
+		switch(strtolower(caGetOption('returnAs', $pa_options, 'seconds'))) {
+			case 'days':
+				return $vo_interval->days + (($vo_interval->h >= 12) ? 1 : 0);
+				break;
+			case 'hours':
+				return ($vo_interval->days * 24 * 60 * 60) + ($vo_interval->h * 60 * 60) + (($vo_interval->m >= 30) ? 1 : 0);
+				break;
+			case 'minutes':
+				return ($vo_interval->days * 24 * 60 * 60) + ($vo_interval->h * 60 * 60) + ($vo_interval->m * 60) + (($vo_interval->s >= 30) ? 1 : 0);
+				break;
+			case 'seconds':
+			default:
+				return ($vo_interval->days * 24 * 60 * 60) + ($vo_interval->h * 60 * 60) + ($vo_interval->m * 60) + $vo_interval->s;
+				break;
+		}
+		return null;
 	}
 	# -------------------------------------------------------------------
 	/**
 	 * Timezone-less version of getDate()
 	 */
-	function gmgetdate($ts = null){ 
+	public function gmgetdate($ts = null){ 
         $k = array('seconds','minutes','hours','mday', 
-                'wday','mon','year','yday','weekday','month',0); 
-        return(array_combine($k,split(":", 
-                date('s:i:G:j:w:n:Y:z:l:F:U',is_null($ts)?time():$ts)))); 
+                'wday','mon','year','yday','weekday','month',0);
+        return(array_combine($k,explode(":",
+                date('s:i:G:j:w:n:Y:z:l:F:U',is_null($ts)?time():intval($ts)))));
     } 
  	# -------------------------------------------------------------------
 }

@@ -228,8 +228,7 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 	# for import and export
 	public function register() {
 		$this->opo_config = Configuration::load();
-		$vs_external_app_config_path = $this->opo_config->get('external_applications');
-		$this->opo_external_app_config = Configuration::load($vs_external_app_config_path);
+		$this->opo_external_app_config = Configuration::load(__CA_CONF_DIR__."/external_applications.conf");
 		$this->ops_CoreImage_path = $this->opo_external_app_config->get('coreimagetool_app');
 		
 		$this->ops_dcraw_path = $this->opo_external_app_config->get('dcraw_app');
@@ -288,6 +287,7 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		}
 		
 		$r_handle = new Imagick();
+		$this->setResourceLimits($r_handle);
 		try {
 			if ($ps_filepath != '' && ($r_handle->pingImage($ps_filepath))) {
 				$mimetype = $this->_getMagickImageMimeType($r_handle);
@@ -457,6 +457,7 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 				$this->handle = "";
 				$this->filepath = "";
 				$handle = new Imagick();
+				$this->setResourceLimits($handle);
 				
 				if ($mimetype == 'image/x-dcraw') {
 					if($this->filepath_conv) { @unlink($this->filepath_conv); }
@@ -503,7 +504,7 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 					}
 					
 					// exif
-					if(function_exists('exif_read_data')) {
+					if(function_exists('exif_read_data') && !($this->opo_config->get('dont_use_exif_read_data'))) {
 						if (is_array($va_exif = caSanitizeArray(@exif_read_data($ps_filepath, 'EXIF', true, false)))) { 							
 							//
 							// Rotate incoming image as needed
@@ -705,6 +706,7 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 					}
 					
 					$w = new Imagick();
+					$this->setResourceLimits($w);
 					if (!$w->readImage($parameters['image'])) {
 						$this->postError(1610, _t("Couldn't load watermark image at %1", $parameters['image']), "WLPlugImagick->transform:WATERMARK()");
 						return false;
@@ -1028,10 +1030,12 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		$vs_archive_original = $vs_archive_original.".tif";
 
 		$vo_orig = new Imagick();
+		$vo_orig->setResourceLimits($r_handle);
 
 		foreach($pa_files as $vs_file){
 			if(file_exists($vs_file)){
 				$vo_imagick = new Imagick();
+				$vo_imagick->setResourceLimits($r_handle);
 
 				if($vo_imagick->readImage($vs_file)){
 					$vo_orig->addImage($vo_imagick);
@@ -1172,6 +1176,16 @@ class WLPlugMediaImagick Extends BaseMediaPlugin Implements IWLPlugMedia {
 		$this->metadata = array();
 		$this->errors = array();
 		$this->opa_faces = null;
+	}
+	# ------------------------------------------------
+	private function setResourceLimits($po_handle) {
+		$po_handle->setResourceLimit(imagick::RESOURCETYPE_MEMORY, 1024*1024*1024);		// Set maximum amount of memory in bytes to allocate for the pixel cache from the heap.
+		$po_handle->setResourceLimit(imagick::RESOURCETYPE_MAP, 1024*1024*1024);		// Set maximum amount of memory map in bytes to allocate for the pixel cache.
+		$po_handle->setResourceLimit(imagick::RESOURCETYPE_AREA, 6144*6144);			// Set the maximum width * height of an image that can reside in the pixel cache memory.
+		$po_handle->setResourceLimit(imagick::RESOURCETYPE_FILE, 1024);					// Set maximum number of open pixel cache files.
+		$po_handle->setResourceLimit(imagick::RESOURCETYPE_DISK, 64*1024*1024*1024);					// Set maximum amount of disk space in bytes permitted for use by the pixel cache.	
+		
+		return true;
 	}
 	# ------------------------------------------------
 	public function cleanup() {

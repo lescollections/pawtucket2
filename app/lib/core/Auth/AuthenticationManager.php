@@ -46,12 +46,12 @@ class AuthenticationManager {
 	 *
 	 * @throws AuthClassDoesNotExistException
 	 */
-	public static function init() {
-		if((strlen(self::$g_authentication_adapter) == 0) || !class_exists(self::$g_authentication_adapter)) {
+	public static function init($ps_adapter=null) {
+		if(!is_null($ps_adapter) || ((strlen(self::$g_authentication_adapter) == 0) || !class_exists(self::$g_authentication_adapter))) {
 			$o_app_conf = Configuration::load();
-			$o_auth_config = Configuration::load($o_app_conf->get('authentication_config'));
+			$o_auth_config = Configuration::load(__CA_CONF_DIR__."/authentication.conf");
 
-			$vs_auth_adapter = $o_auth_config->get('auth_adapter');
+			$vs_auth_adapter = (!is_null($ps_adapter)) ? $ps_adapter : $o_auth_config->get('auth_adapter');
 
 			if(file_exists(__CA_LIB_DIR__."/core/Auth/Adapters/{$vs_auth_adapter}.php")) {
 				@require_once(__CA_LIB_DIR__."/core/Auth/Adapters/{$vs_auth_adapter}.php");
@@ -91,7 +91,15 @@ class AuthenticationManager {
 	public static function authenticate($ps_username, $ps_password="", $pa_options=null) {
 		self::init();
 
-		return call_user_func(self::$g_authentication_adapter.'::authenticate', $ps_username, $ps_password, $pa_options);
+		if ($vn_rc = call_user_func(self::$g_authentication_adapter.'::authenticate', $ps_username, $ps_password, $pa_options)) {
+			return $vn_rc;
+		} elseif(self::$g_authentication_adapter !== 'CaUsers') {
+			// fall back to ca_users "native" authentication
+			self::init('CaUsers');
+			$vn_rc = call_user_func(self::$g_authentication_adapter.'::authenticate', $ps_username, $ps_password, $pa_options);
+			self::$g_authentication_adapter = null;
+			return $vn_rc;
+		}
 	}
 
 	/**
@@ -135,7 +143,7 @@ class AuthenticationManager {
 		self::init();
 
 		if($pn_feature == __CA_AUTH_ADAPTER_FEATURE_RESET_PASSWORDS__) {
-			$po_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+			$po_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 			if(!$po_auth_config->get('auth_allow_password_reset')) {
 				return false;
 			}
@@ -178,7 +186,15 @@ class AuthenticationManager {
 	public static function getUserInfo($ps_username, $ps_password) {
 		self::init();
 
-		return call_user_func(self::$g_authentication_adapter.'::getUserInfo', $ps_username, $ps_password);
+		if ($vn_rc = call_user_func(self::$g_authentication_adapter.'::getUserInfo', $ps_username, $ps_password)) {
+			return $vn_rc;
+		} elseif(self::$g_authentication_adapter !== 'CaUsers') {
+			// fall back to ca_users "native" authentication
+			self::init('CaUsers');
+			$vn_rc = call_user_func(self::$g_authentication_adapter.'::getUserInfo', $ps_username, $ps_password, $pa_options);
+			self::$g_authentication_adapter = null;
+			return $vn_rc;
+		}
 	}
 }
 

@@ -36,7 +36,7 @@ require_once(__CA_LIB_DIR__.'/core/Auth/PasswordHash.php');
 class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter {
 	# --------------------------------------------------------------------------------
 	public static function authenticate($ps_username, $ps_password = '', $pa_options=null) {
-		$o_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+		$o_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 		
 		if(!function_exists("ldap_connect")){
 			throw new ActiveDirectoryException(_t("PHP's LDAP module is required for LDAP authentication!"));
@@ -54,10 +54,23 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 		$vs_bind_rdn = self::postProcessLDAPConfigValue("ldap_bind_rdn_format", $ps_username, $vs_user_ou, $vs_base_dn);
 
 		$vo_ldap = ldap_connect($vs_ldaphost,$vs_ldapport);
+		
+		ldap_set_option($vo_ldap, LDAP_OPT_REFERRALS, 0);
 		ldap_set_option($vo_ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
 
 		if (!$vo_ldap) {
 			return false;
+		}
+		
+		$vs_bind_rdn_filter = self::postProcessLDAPConfigValue("ldap_bind_rdn_filter", $ps_username, $vs_user_ou, $vs_base_dn);
+		if(strlen($vs_bind_rdn_filter)>0) {
+			
+			$vo_filter_bind = @ldap_bind($vo_ldap, $o_auth_config->get("ldap_bind_rdn_filter_rdn"), $o_auth_config->get("ldap_bind_rdn_filter_password"));
+			$vo_dn_search_results = ldap_search($vo_ldap, $vs_base_dn, $vs_bind_rdn_filter);
+			$va_dn_search_results = ldap_get_entries($vo_ldap, $vo_dn_search_results);
+			if(isset($va_dn_search_results[0]['dn'])) {
+				$vs_bind_rdn = $va_dn_search_results[0]['dn'];
+			}
 		}
 
 		// log in
@@ -88,7 +101,7 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 	}
 	# --------------------------------------------------------------------------------
 	public static function getUserInfo($ps_username, $ps_password) {
-		$o_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+		$o_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 
 		if(!function_exists("ldap_connect")){
 			throw new ActiveDirectoryException(_t("PHP's LDAP module is required for LDAP authentication!"));
@@ -110,6 +123,20 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 		$vo_ldap = ldap_connect($vs_ldaphost,$vs_ldapport);
 		if (!$vo_ldap) {
 			throw new ActiveDirectoryException(_t("Could not connect to LDAP server."));
+		}
+		
+		ldap_set_option($vo_ldap, LDAP_OPT_REFERRALS, 0);
+		ldap_set_option($vo_ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+		
+		$vs_bind_rdn_filter = self::postProcessLDAPConfigValue("ldap_bind_rdn_filter", $ps_username, $vs_user_ou, $vs_base_dn);
+		if(strlen($vs_bind_rdn_filter)>0) {
+			$vo_filter_bind = @ldap_bind($vo_ldap, $o_auth_config->get("ldap_bind_rdn_filter_rdn"), $o_auth_config->get("ldap_bind_rdn_filter_password"));
+			
+			$vo_dn_search_results = ldap_search($vo_ldap, $vs_base_dn, $vs_bind_rdn_filter);
+			$va_dn_search_results = ldap_get_entries($vo_ldap, $vo_dn_search_results);
+			if(isset($va_dn_search_results[0]['dn'])) {
+				$vs_bind_rdn = $va_dn_search_results[0]['dn'];
+			}
 		}
 
 		ldap_set_option($vo_ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
@@ -159,7 +186,7 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 	}
 	# --------------------------------------------------------------------------------
 	private static function postProcessLDAPConfigValue($key, $ps_user_group_name, $ps_user_ou, $ps_base_dn) {
-		$o_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+		$o_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 
 		$result = $o_auth_config->get($key);
 		$result = str_replace('{username}', $ps_user_group_name, $result);
@@ -170,7 +197,7 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 	}
 	# --------------------------------------------------------------------------------
 	private static function isMemberinAtLeastOneGroup($ps_user, $po_ldap){
-		$o_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+		$o_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 
 		$va_group_cn = $o_auth_config->getList("ldap_group_cn_list");
 		$vs_base_dn = $o_auth_config->get("ldap_base_dn");
@@ -195,12 +222,13 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 
 		$va_attrs = ldap_get_attributes($po_ldap, $vo_entry);
 		if(is_array($va_group_cn) && sizeof($va_group_cn)>0) {
-			if (sizeof(array_intersect($va_group_cn, $va_attrs[$vs_attribute_member_of])) === 0) {
+			if (sizeof(array_intersect(array_map('strtolower', $va_group_cn), array_map('strtolower', $va_attrs[$vs_attribute_member_of]))) === 0) {
 				// user is not in any relevant groups
 				ldap_unbind($po_ldap);
 				return false;
 			}
 		}
+		return true;
 	}
 	# --------------------------------------------------------------------------------
 	public static function supports($pn_feature) {
@@ -210,7 +238,8 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 			case __CA_AUTH_ADAPTER_FEATURE_RESET_PASSWORDS__:
 			case __CA_AUTH_ADAPTER_FEATURE_UPDATE_PASSWORDS__:
 			default:
-				return false;
+				#return false;
+				return true; // TODO: temporary hack to allow display of password change fields in user auth config for fallback logins
 		}
 	}
 	# --------------------------------------------------------------------------------
@@ -220,7 +249,7 @@ class ActiveDirectoryAuthAdapter extends BaseAuthAdapter implements IAuthAdapter
 	}
 	# --------------------------------------------------------------------------------
 	public static function getAccountManagementLink() {
-		$o_auth_config = Configuration::load(Configuration::load()->get('authentication_config'));
+		$o_auth_config = Configuration::load(__CA_CONF_DIR__.'/authentication.conf');
 
 		if($vs_link = $o_auth_config->get('ldap_manage_account_url')) {
 			return $vs_link;

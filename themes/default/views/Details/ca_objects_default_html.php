@@ -60,11 +60,19 @@
 
 							{{{<ifcount code="ca_list_items" min="1" max="1"><H6>Related Term</H6></ifcount>}}}
 							{{{<ifcount code="ca_list_items" min="2"><H6>Related Terms</H6></ifcount>}}}
+<<<<<<< HEAD
 							{{{<unit relativeTo="ca_list_items" delimiter="<br/>">^ca_list_items.preferred_labels.name</unit>}}}
 
 							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6>LC Terms</H6></ifcount>}}}
 							{{{<unit delimiter="<br/>">^ca_objects.LcshNames</unit>}}}
 						</div><!-- end col -->
+=======
+							{{{<unit relativeTo="ca_list_items" delimiter="<br/>">^ca_list_items.preferred_labels.name_plural</unit>}}}
+							
+							{{{<ifcount code="ca_objects.LcshNames" min="1"><H6>LC Terms</H6></ifcount>}}}
+							{{{<unit delimiter="<br/>"><l>^ca_objects.LcshNames</l></unit>}}}
+						</div><!-- end col -->				
+>>>>>>> cfe90e7f473a940bcdc7b7d7a4af704815791ff7
 						<div class="col-sm-6 colBorderLeft">
 							{{{map}}}
 						</div>
